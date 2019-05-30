@@ -1,12 +1,13 @@
-package br.com.walter.walter
+package br.com.walter.walter.features.home.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import br.com.walter.walter.R
 
-class MainActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.home_activity)
     }
 }
