@@ -7,6 +7,7 @@ import br.com.walter.walter.core.functional.TwoWayMapper
 import br.com.walter.walter.features.addtransaction.TransactionType
 
 const val TRANSACTION_TYPE_TABLE_NAME = "transaction_type"
+const val TRANSACTION_TYPE_INITIAL_SETUP = "INSERT INTO transaction_type VALUES (1, 'Expense'), (1, 'Income')"
 
 @Entity(tableName = TRANSACTION_TYPE_TABLE_NAME )
 data class TransactionTypeDto(
