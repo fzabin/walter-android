@@ -15,6 +15,8 @@ interface AddTransactionContract {
 
         fun getAllTransactionTypes()
 
+        fun getAllCategories()
+
     }
 
 }
