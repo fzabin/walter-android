@@ -6,6 +6,7 @@ import br.com.walter.walter.core.functional.TwoWayMapper
 import br.com.walter.walter.features.addtransaction.Category
 
 const val CATEGORY_TABLE_NAME = "category"
+const val CATEGORY_ID_COLUMN_NAME = "id"
 const val CATEGORY_TRANSACTION_TYPE_ID_COLUMN_NAME = "transaction_type_id"
 const val CATEGORY_INITIAL_SETUP = "INSERT INTO `category` VALUES " +
         "(1, 'Bars and Restaurants', 1), " +
