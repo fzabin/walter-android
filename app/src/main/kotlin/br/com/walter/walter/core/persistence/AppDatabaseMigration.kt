@@ -7,7 +7,8 @@ import br.com.walter.walter.features.addtransaction.data.CATEGORY_INITIAL_SETUP
 
 fun getDatabaseMigrations(): Array<Migration> =
     arrayOf(
-        MigrationFrom1To2
+        MigrationFrom1To2,
+        MigrationFrom2To3
     )
 
 object MigrationFrom1To2 : Migration(DATABASE_VERSION_1, DATABASE_VERSION_2) {
@@ -23,6 +24,23 @@ object MigrationFrom1To2 : Migration(DATABASE_VERSION_1, DATABASE_VERSION_2) {
         )
 
         database.execSQL(CATEGORY_INITIAL_SETUP)
+    }
+}
+
+object MigrationFrom2To3 : Migration(DATABASE_VERSION_2, DATABASE_VERSION_3) {
+    override fun migrate(database: SupportSQLiteDatabase) {
+        logMigration()
+
+        database.execSQL(
+            "CREATE TABLE IF NOT EXISTS `transaction` " +
+                    "(`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " +
+                    "`uuid` CHAR(36) NOT NULL, " +
+                    "`value` TEXT NOT NULL, " +
+                    "`date` TEXT NOT NULL, " +
+                    "`description` TEXT NOT NULL, " +
+                    "`category_id` INTEGER NOT NULL, " +
+                    "FOREIGN KEY(`category_id`) REFERENCES `category`(`id`));"
+        )
     }
 }
 
