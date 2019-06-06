@@ -17,8 +17,6 @@ class HomeActivity : AppCompatActivity() {
 
         setupActionBar()
         setupStatusBarColor()
-
-        home_add_fab.setOnClickListener { navigateToAddTransaction() }
     }
 
     private fun setupActionBar() {
