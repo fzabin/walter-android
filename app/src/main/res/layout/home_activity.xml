@@ -205,7 +205,7 @@
         android:layout_height="0dp"
         android:background="@drawable/bg_border_right_investment"
         android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toTopOf="@id/home_balance_section"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/home_summary_option"
         app:layout_constraintTop_toBottomOf="@id/home_expenses_section" />
@@ -240,58 +240,5 @@
         app:layout_constraintRight_toRightOf="@id/home_investments_section"
         app:layout_constraintTop_toBottomOf="@id/home_investments_text" />
     <!-- endregion -->
-
-    <!-- Investment region -->
-    <View
-        android:id="@+id/home_balance_section"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@drawable/bg_border_right_balance"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/home_summary_option"
-        app:layout_constraintTop_toBottomOf="@id/home_investments_section" />
-
-    <TextView
-        android:id="@+id/home_balance_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:gravity="bottom|end"
-        android:text="@string/home_balance_description"
-        android:textAllCaps="true"
-        android:textColor="@color/colorSecondaryText"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@id/home_balance_description"
-        app:layout_constraintRight_toRightOf="@id/home_balance_section"
-        app:layout_constraintTop_toTopOf="@id/home_balance_section"
-        app:layout_constraintVertical_chainStyle="packed" />
-
-    <TextView
-        android:id="@+id/home_balance_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:text="@string/home_balance_text"
-        android:textAlignment="textEnd"
-        android:textAllCaps="true"
-        android:textColor="@color/colorBalance"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/home_balance_section"
-        app:layout_constraintRight_toRightOf="@id/home_balance_section"
-        app:layout_constraintTop_toBottomOf="@id/home_balance_text" />
-    <!-- endregion -->
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/home_add_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_add_white_24dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
