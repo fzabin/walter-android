@@ -14,8 +14,6 @@ import br.com.walter.walter.core.persistence.DATABASE_NAME
 import br.com.walter.walter.core.persistence.getDatabaseMigrations
 import br.com.walter.walter.features.addtransaction.data.CategoryDataSource
 import br.com.walter.walter.features.addtransaction.data.CategoryDtoMapper
-import br.com.walter.walter.features.addtransaction.data.TransactionTypeDataSource
-import br.com.walter.walter.features.addtransaction.data.TransactionTypeDtoMapper
 import br.com.walter.walter.features.home.presentation.ADD_EXPENSE_REQUEST
 import br.com.walter.walter.features.home.presentation.ADD_INCOME_REQUEST
 import br.com.walter.walter.features.home.presentation.ADD_INVESTMENT_REQUEST
@@ -43,18 +41,13 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
             .addCallback(AppDatabaseCallback)
             .build()
 
-        val transactionTypeDao = database.transactionTypeDao()
-        val transactionTypeDtoMapper = TransactionTypeDtoMapper()
-
         val categoryDao = database.categoryDao()
         val categoryDtoMapper = CategoryDtoMapper()
 
-        val transactionTypeRepository = TransactionTypeDataSource(transactionTypeDao, transactionTypeDtoMapper)
         val categoryRepository = CategoryDataSource(categoryDao, categoryDtoMapper)
 
         presenter = AddTransactionPresenter(
             view = this,
-            transactionTypeRepository = transactionTypeRepository,
             categoryRepository = categoryRepository
         )
         presenter.start()

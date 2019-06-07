@@ -13,8 +13,6 @@ interface AddTransactionContract {
 
     interface Presenter: BasePresenter {
 
-        fun getAllTransactionTypes()
-
         fun getAllCategories()
 
     }

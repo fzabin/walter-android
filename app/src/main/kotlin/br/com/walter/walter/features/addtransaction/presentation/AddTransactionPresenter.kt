@@ -9,23 +9,11 @@ import kotlinx.coroutines.launch
 
 class AddTransactionPresenter(
     private val view: AddTransactionContract.View,
-    private val transactionTypeRepository: TransactionTypeRepository,
     private val categoryRepository: CategoryRepository
 ) : AddTransactionContract.Presenter, CoroutinePresenter() {
 
     override fun start() {
-        getAllTransactionTypes()
         getAllCategories()
-    }
-
-    override fun getAllTransactionTypes() {
-        launch {
-            transactionTypeRepository.getAll()
-                .onSuccess { transactionTypes ->
-                    view.showMessage(transactionTypes.toString())
-                }
-                .onFailure { view.showMessage("Failure!") }
-        }
     }
 
     override fun getAllCategories() {
