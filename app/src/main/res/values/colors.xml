@@ -12,5 +12,5 @@
     <color name="colorIncome">#72e635</color>
     <color name="colorBalance">#fff</color>
 
-    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#999999</color>
 </resources>
