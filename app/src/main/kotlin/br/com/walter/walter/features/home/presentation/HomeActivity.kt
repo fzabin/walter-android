@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
         setupActionBar()
         setupStatusBarColor()
 
-        home_income_section.setOnClickListener { navigateToAddTransaction(ADD_INCOME_REQUEST) }
+        home_balance_section.setOnClickListener { navigateToAddTransaction(ADD_INCOME_REQUEST) }
         home_expenses_section.setOnClickListener { navigateToAddTransaction(ADD_EXPENSE_REQUEST) }
         home_investments_section.setOnClickListener { navigateToAddTransaction(ADD_INVESTMENT_REQUEST) }
     }
