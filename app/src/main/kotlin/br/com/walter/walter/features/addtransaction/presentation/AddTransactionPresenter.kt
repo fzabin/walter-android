@@ -19,9 +19,7 @@ class AddTransactionPresenter(
     override fun getAllCategories() {
         launch {
             categoryRepository.getAll()
-                .onSuccess { categories ->
-                    view.showMessage(categories.toString())
-                }
+                .onSuccess { }
                 .onFailure { view.showMessage("Failure!") }
         }
     }
