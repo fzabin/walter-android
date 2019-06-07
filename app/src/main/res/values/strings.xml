@@ -17,4 +17,17 @@
     <string name="home_accessibility_logo">App logo</string>
     <!-- Home screen -->
 
+    <!-- Add production screen -->
+    <string name="addproduction_income_title">Income</string>
+    <string name="addproduction_expense_title">Expense</string>
+    <string name="addproduction_investment_title">Investment</string>
+    <string name="addproduction_default_button">Add transaction</string>
+    <string name="addproduction_income_button">Add income</string>
+    <string name="addproduction_expense_button">Add expense</string>
+    <string name="addproduction_investment_button">Add investment</string>
+    <string name="addproduction_value_field">Value</string>
+    <string name="addproduction_category_field">Category</string>
+    <string name="addproduction_date_field">Date</string>
+    <string name="addproduction_description_field">Description</string>
+    <!-- Add production screen -->
 </resources>
