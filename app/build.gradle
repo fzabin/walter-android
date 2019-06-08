@@ -64,6 +64,7 @@ dependencies {
 
     // Third Party
     implementation 'joda-time:joda-time:2.10.1'
+    implementation 'info.hoang8f:android-segmented:1.0.6'
 
     // Tests
     testImplementation 'junit:junit:4.12'
