@@ -19,6 +19,8 @@ interface AddTransactionContract {
 
         fun onDateSelected(date: String)
 
+        fun setDefaultDate()
+
     }
 
 }

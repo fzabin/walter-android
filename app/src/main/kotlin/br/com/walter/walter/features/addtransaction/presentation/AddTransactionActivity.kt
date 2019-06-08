@@ -64,7 +64,6 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         }
 
         addtransaction_date_field.setOnClickListener { datePicker.show() }
-        addtransaction_date_field.setText(DateFormatter().nowAsBrFormat())
     }
 
     private fun setupActionBar() {
