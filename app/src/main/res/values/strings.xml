@@ -18,9 +18,13 @@
     <!-- Home screen -->
 
     <!-- Add production screen -->
+    <string name="addproduction_default_title">Transaction</string>
     <string name="addproduction_income_title">Income</string>
     <string name="addproduction_expense_title">Expense</string>
     <string name="addproduction_investment_title">Investment</string>
+    <string name="addproduction_income_option">Income</string>
+    <string name="addproduction_expense_option">Expense</string>
+    <string name="addproduction_investment_option">Investment</string>
     <string name="addproduction_default_button">Add transaction</string>
     <string name="addproduction_income_button">Add income</string>
     <string name="addproduction_expense_button">Add expense</string>
