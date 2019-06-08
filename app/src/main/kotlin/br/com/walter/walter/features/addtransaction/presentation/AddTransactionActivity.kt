@@ -15,6 +15,8 @@ import br.com.walter.walter.core.persistence.getDatabaseMigrations
 import br.com.walter.walter.core.util.DateFormatter
 import br.com.walter.walter.features.addtransaction.data.CategoryDataSource
 import br.com.walter.walter.features.addtransaction.data.CategoryDtoMapper
+import br.com.walter.walter.features.shared.presentation.DatePicker
+import br.com.walter.walter.features.shared.presentation.datePicker
 import kotlinx.android.synthetic.main.addtransaction_activity.*
 
 const val WITHOUT_ELEVATION = 0F
@@ -57,6 +59,11 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
             setupLayout(getString(R.string.addproduction_investment_button), this.getColor(R.color.colorInvestment))
         }
 
+        val datePicker = DatePicker(this) { _, formattedDate ->
+            addtransaction_date_field?.setText(formattedDate)
+        }
+
+        addtransaction_date_field.setOnClickListener { datePicker.show() }
         addtransaction_date_field.setText(DateFormatter().nowAsBrFormat())
     }
 
