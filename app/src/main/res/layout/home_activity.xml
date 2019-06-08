@@ -89,7 +89,7 @@
 
     <View
         android:id="@+id/home_sidebar"
-        android:layout_width="76dp"
+        android:layout_width="70dp"
         android:layout_height="0dp"
         android:background="#474b4c"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -205,7 +205,7 @@
         android:layout_height="0dp"
         android:background="@drawable/bg_border_right_investment"
         android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/home_add_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/home_summary_option"
         app:layout_constraintTop_toBottomOf="@id/home_expenses_section" />
@@ -240,5 +240,19 @@
         app:layout_constraintRight_toRightOf="@id/home_investments_section"
         app:layout_constraintTop_toBottomOf="@id/home_investments_text" />
     <!-- endregion -->
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/home_add_button"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/bg_add_button"
+        android:foreground="@drawable/bg_add_button_ripple"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="0dp"
+        android:src="@drawable/ic_add_white_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/home_investments_section" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

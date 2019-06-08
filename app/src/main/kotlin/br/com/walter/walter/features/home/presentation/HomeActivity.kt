@@ -9,9 +9,7 @@ import br.com.walter.walter.features.addtransaction.presentation.AddTransactionA
 import br.com.walter.walter.R
 import kotlinx.android.synthetic.main.home_activity.*
 
-const val ADD_INCOME_REQUEST = 1
-const val ADD_EXPENSE_REQUEST = 2
-const val ADD_INVESTMENT_REQUEST = 3
+const val ADD_REQUEST = 1
 
 class HomeActivity : AppCompatActivity() {
 
@@ -22,9 +20,10 @@ class HomeActivity : AppCompatActivity() {
         setupActionBar()
         setupStatusBarColor()
 
-        home_balance_section.setOnClickListener { navigateToAddTransaction(ADD_INCOME_REQUEST) }
-        home_expenses_section.setOnClickListener { navigateToAddTransaction(ADD_EXPENSE_REQUEST) }
-        home_investments_section.setOnClickListener { navigateToAddTransaction(ADD_INVESTMENT_REQUEST) }
+        home_balance_section.setOnClickListener { }
+        home_expenses_section.setOnClickListener { }
+        home_investments_section.setOnClickListener { }
+        home_add_button.setOnClickListener { navigateToAddTransaction(ADD_REQUEST) }
     }
 
     private fun setupActionBar() {
