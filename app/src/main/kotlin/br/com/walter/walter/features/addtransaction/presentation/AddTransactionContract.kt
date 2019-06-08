@@ -11,6 +11,8 @@ interface AddTransactionContract {
 
         fun setDateField(text: String)
 
+        fun setCategoryField(text: String)
+
     }
 
     interface Presenter: BasePresenter {

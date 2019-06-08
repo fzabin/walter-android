@@ -104,4 +104,8 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     override fun setDateField(text: String) {
         addtransaction_date_field.setText(text)
     }
+
+    override fun setCategoryField(text: String) {
+        addtransaction_category_field.setText(text)
+    }
 }
