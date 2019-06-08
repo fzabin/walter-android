@@ -8,7 +8,7 @@
     tools:context=".features.addtransaction.presentation.AddTransactionActivity">
 
     <info.hoang8f.android.segmented.SegmentedGroup
-        android:id="@+id/addproduction_transaction_type_group"
+        android:id="@+id/addtransaction_transaction_type_group"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -21,29 +21,29 @@
         app:sc_tint_color="@color/colorExpense">
 
         <RadioButton
-            android:id="@+id/addproduction_expense_option"
+            android:id="@+id/addtransaction_expense_option"
             style="@style/RadioButton"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1"
             android:checked="true"
-            android:text="@string/addproduction_expense_option" />
+            android:text="@string/addtransaction_expense_option" />
 
         <RadioButton
-            android:id="@+id/addproduction_income_option"
+            android:id="@+id/addtransaction_income_option"
             style="@style/RadioButton"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1"
-            android:text="@string/addproduction_income_option" />
+            android:text="@string/addtransaction_income_option" />
 
         <RadioButton
-            android:id="@+id/addproduction_investment_option"
+            android:id="@+id/addtransaction_investment_option"
             style="@style/RadioButton"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1"
-            android:text="@string/addproduction_investment_option" />
+            android:text="@string/addtransaction_investment_option" />
 
     </info.hoang8f.android.segmented.SegmentedGroup>
 
@@ -53,11 +53,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="@string/addproduction_value_field"
+        android:hint="@string/addtransaction_value_field"
         android:theme="@style/TextInputLayoutAppearance"
-        app:layout_constraintEnd_toEndOf="@id/addproduction_transaction_type_group"
-        app:layout_constraintStart_toStartOf="@id/addproduction_transaction_type_group"
-        app:layout_constraintTop_toBottomOf="@id/addproduction_transaction_type_group">
+        app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
+        app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group"
+        app:layout_constraintTop_toBottomOf="@id/addtransaction_transaction_type_group">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/addtransaction_value_field"
@@ -75,10 +75,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="@string/addproduction_category_field"
+        android:hint="@string/addtransaction_category_field"
         android:theme="@style/TextInputLayoutAppearance"
-        app:layout_constraintEnd_toEndOf="@id/addproduction_transaction_type_group"
-        app:layout_constraintStart_toStartOf="@id/addproduction_transaction_type_group"
+        app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
+        app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintTop_toBottomOf="@id/addtransaction_value_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -101,10 +101,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="@string/addproduction_date_field"
+        android:hint="@string/addtransaction_date_field"
         android:theme="@style/TextInputLayoutAppearance"
-        app:layout_constraintEnd_toEndOf="@id/addproduction_transaction_type_group"
-        app:layout_constraintStart_toStartOf="@id/addproduction_transaction_type_group"
+        app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
+        app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintTop_toBottomOf="@id/addtransaction_category_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -128,10 +128,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="@string/addproduction_description_field"
+        android:hint="@string/addtransaction_description_field"
         android:theme="@style/TextInputLayoutAppearance"
-        app:layout_constraintEnd_toEndOf="@id/addproduction_transaction_type_group"
-        app:layout_constraintStart_toStartOf="@id/addproduction_transaction_type_group"
+        app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
+        app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintTop_toBottomOf="@id/addtransaction_date_layout">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -145,13 +145,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/addproduction_add_button"
+        android:id="@+id/addtransaction_add_button"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/addproduction_default_button"
+        android:text="@string/addtransaction_default_button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/addproduction_transaction_type_group"
-        app:layout_constraintStart_toStartOf="@id/addproduction_transaction_type_group" />
+        app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
+        app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

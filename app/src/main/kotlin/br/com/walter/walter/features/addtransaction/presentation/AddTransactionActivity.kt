@@ -49,14 +49,14 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         )
         presenter.start()
 
-        addproduction_expense_option.setOnClickListener {
-            setupLayout(getString(R.string.addproduction_expense_button), this.getColor(R.color.colorExpense))
+        addtransaction_expense_option.setOnClickListener {
+            setupLayout(getString(R.string.addtransaction_expense_button), this.getColor(R.color.colorExpense))
         }
-        addproduction_income_option.setOnClickListener {
-            setupLayout(getString(R.string.addproduction_income_button), this.getColor(R.color.colorIncome))
+        addtransaction_income_option.setOnClickListener {
+            setupLayout(getString(R.string.addtransaction_income_button), this.getColor(R.color.colorIncome))
         }
-        addproduction_investment_option.setOnClickListener {
-            setupLayout(getString(R.string.addproduction_investment_button), this.getColor(R.color.colorInvestment))
+        addtransaction_investment_option.setOnClickListener {
+            setupLayout(getString(R.string.addtransaction_investment_button), this.getColor(R.color.colorInvestment))
         }
 
         val datePicker = DatePicker(this) { _, formattedDate ->
@@ -69,7 +69,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
 
     private fun setupActionBar() {
         supportActionBar?.elevation = WITHOUT_ELEVATION
-        supportActionBar?.title = getString(R.string.addproduction_default_title)
+        supportActionBar?.title = getString(R.string.addtransaction_default_title)
     }
 
     private fun setupStatusBarColor() {
@@ -81,7 +81,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     }
 
     private fun setupInitialButtonColor() {
-        addproduction_add_button.backgroundTintList = ColorStateList.valueOf(this.getColor(R.color.colorExpense))
+        addtransaction_add_button.backgroundTintList = ColorStateList.valueOf(this.getColor(R.color.colorExpense))
     }
 
     private fun setupLayout(buttonText: String, color: Int) {
@@ -90,12 +90,12 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     }
 
     private fun setupSegmentedGroup(color: Int) {
-        addproduction_transaction_type_group.setTintColor(color)
+        addtransaction_transaction_type_group.setTintColor(color)
     }
 
     private fun setupButton(text: String, color: Int) {
-        addproduction_add_button.text = text
-        addproduction_add_button.backgroundTintList = ColorStateList.valueOf(color)
+        addtransaction_add_button.text = text
+        addtransaction_add_button.backgroundTintList = ColorStateList.valueOf(color)
     }
 
     override fun showMessage(message: String) {
