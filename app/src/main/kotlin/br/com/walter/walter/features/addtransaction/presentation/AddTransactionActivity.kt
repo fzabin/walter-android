@@ -12,15 +12,12 @@ import br.com.walter.walter.core.persistence.AppDatabase
 import br.com.walter.walter.core.persistence.AppDatabaseCallback
 import br.com.walter.walter.core.persistence.DATABASE_NAME
 import br.com.walter.walter.core.persistence.getDatabaseMigrations
+import br.com.walter.walter.core.util.DateFormatter
 import br.com.walter.walter.features.addtransaction.data.CategoryDataSource
 import br.com.walter.walter.features.addtransaction.data.CategoryDtoMapper
-import br.com.walter.walter.features.home.presentation.ADD_EXPENSE_REQUEST
-import br.com.walter.walter.features.home.presentation.ADD_INCOME_REQUEST
-import br.com.walter.walter.features.home.presentation.ADD_INVESTMENT_REQUEST
 import kotlinx.android.synthetic.main.addtransaction_activity.*
 
 const val WITHOUT_ELEVATION = 0F
-const val REQUEST_CODE = "request_code"
 
 class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View {
 
@@ -30,11 +27,9 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.addtransaction_activity)
 
+        setupActionBar()
         setupStatusBarColor()
-
-        intent?.getIntExtra(REQUEST_CODE, 0)?.let {
-            setupLayout(it)
-        }
+        setupInitialButtonColor()
 
         val database = Room.databaseBuilder(this, AppDatabase::class.java, DATABASE_NAME)
             .addMigrations(*getDatabaseMigrations())
@@ -52,6 +47,22 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         )
         presenter.start()
 
+        addproduction_expense_option.setOnClickListener {
+            setupLayout(getString(R.string.addproduction_expense_button), this.getColor(R.color.colorExpense))
+        }
+        addproduction_income_option.setOnClickListener {
+            setupLayout(getString(R.string.addproduction_income_button), this.getColor(R.color.colorIncome))
+        }
+        addproduction_investment_option.setOnClickListener {
+            setupLayout(getString(R.string.addproduction_investment_button), this.getColor(R.color.colorInvestment))
+        }
+
+        addtransaction_date_field.setText(DateFormatter().nowAsBrFormat())
+    }
+
+    private fun setupActionBar() {
+        supportActionBar?.elevation = WITHOUT_ELEVATION
+        supportActionBar?.title = getString(R.string.addproduction_default_title)
     }
 
     private fun setupStatusBarColor() {
@@ -62,26 +73,17 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         window.statusBarColor = color
     }
 
-    private fun setupLayout(requestCode: Int) {
-        when (requestCode) {
-            ADD_INCOME_REQUEST -> {
-                setupActionBar(getString(R.string.addproduction_income_title))
-                setupButton(getString(R.string.addproduction_income_button), this.getColor(R.color.colorIncome))
-            }
-            ADD_EXPENSE_REQUEST -> {
-                setupActionBar(getString(R.string.addproduction_expense_title))
-                setupButton(getString(R.string.addproduction_expense_button), this.getColor(R.color.colorExpense))
-            }
-            ADD_INVESTMENT_REQUEST -> {
-                setupActionBar(getString(R.string.addproduction_investment_title))
-                setupButton(getString(R.string.addproduction_investment_button), this.getColor(R.color.colorInvestment))
-            }
-        }
+    private fun setupInitialButtonColor() {
+        addproduction_add_button.backgroundTintList = ColorStateList.valueOf(this.getColor(R.color.colorExpense))
     }
 
-    private fun setupActionBar(title: String) {
-        supportActionBar?.elevation = WITHOUT_ELEVATION
-        supportActionBar?.title = title
+    private fun setupLayout(buttonText: String, color: Int) {
+        setupButton(buttonText, color)
+        setupSegmentedGroup(color)
+    }
+
+    private fun setupSegmentedGroup(color: Int) {
+        addproduction_transaction_type_group.setTintColor(color)
     }
 
     private fun setupButton(text: String, color: Int) {
