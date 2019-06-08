@@ -60,7 +60,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         }
 
         val datePicker = DatePicker(this) { _, formattedDate ->
-            addtransaction_date_field?.setText(formattedDate)
+            presenter.onDateSelected(formattedDate)
         }
 
         addtransaction_date_field.setOnClickListener { datePicker.show() }
@@ -100,5 +100,9 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
 
     override fun showMessage(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun setDateField(text: String) {
+        addtransaction_date_field.setText(text)
     }
 }

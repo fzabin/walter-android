@@ -9,11 +9,15 @@ interface AddTransactionContract {
 
         fun showMessage(message: String)
 
+        fun setDateField(text: String)
+
     }
 
     interface Presenter: BasePresenter {
 
         fun getAllCategories()
+
+        fun onDateSelected(date: String)
 
     }
 

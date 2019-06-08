@@ -4,7 +4,6 @@ import br.com.walter.walter.core.platform.CoroutinePresenter
 import br.com.walter.walter.core.functional.onFailure
 import br.com.walter.walter.core.functional.onSuccess
 import br.com.walter.walter.features.addtransaction.CategoryRepository
-import br.com.walter.walter.features.addtransaction.TransactionTypeRepository
 import kotlinx.coroutines.launch
 
 class AddTransactionPresenter(
@@ -24,4 +23,7 @@ class AddTransactionPresenter(
         }
     }
 
+    override fun onDateSelected(date: String) {
+        view.setDateField(date)
+    }
 }
