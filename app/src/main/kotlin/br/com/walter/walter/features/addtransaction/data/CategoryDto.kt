@@ -16,7 +16,7 @@ const val CATEGORY_INITIAL_SETUP = "INSERT INTO `category` VALUES " +
         "(5, 'Home', 1), " +
         "(6, 'Loan', 1), " +
         "(7, 'Market', 1), " +
-        "(8, 'Other', 1); " +
+        "(8, 'Other', 1), " +
         "(9, 'Pets', 1), " +
         "(10, 'Service', 1), " +
         "(11, 'Transportation', 1), " +
@@ -27,7 +27,7 @@ const val CATEGORY_INITIAL_SETUP = "INSERT INTO `category` VALUES " +
         "(16, 'Refund', 2), " +
         "(17, 'Other', 2), " +
         "(18, 'Savings', 3), " +
-        "(19, 'Other', 3);"
+        "(19, 'Other', 3); "
 
 @Entity(
     tableName = CATEGORY_TABLE_NAME,
