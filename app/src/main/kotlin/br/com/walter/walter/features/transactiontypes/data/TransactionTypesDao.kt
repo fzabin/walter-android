@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Query
 
 @Dao
-interface TransactionTypeDao {
+interface TransactionTypesDao {
 
     @Query("Select * from $TRANSACTION_TYPE_TABLE_NAME")
     fun getAll(): List<TransactionTypeDto>

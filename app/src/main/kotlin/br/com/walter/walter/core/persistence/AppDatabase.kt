@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import br.com.walter.walter.features.transactions.data.*
 import br.com.walter.walter.features.categories.data.CategoryDao
 import br.com.walter.walter.features.categories.data.CategoryDto
-import br.com.walter.walter.features.transactiontypes.data.TransactionTypeDao
+import br.com.walter.walter.features.transactiontypes.data.TransactionTypesDao
 import br.com.walter.walter.features.transactiontypes.data.TransactionTypeDto
 
 const val DATABASE_NAME = "br.com.walter.walter.db"
@@ -25,7 +25,7 @@ const val DATABASE_VERSION_3 = 3
 )
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun transactionTypeDao(): TransactionTypeDao
+    abstract fun transactionTypeDao(): TransactionTypesDao
 
     abstract fun categoryDao(): CategoryDao
 
