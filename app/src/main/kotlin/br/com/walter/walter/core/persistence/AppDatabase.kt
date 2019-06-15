@@ -3,7 +3,7 @@ package br.com.walter.walter.core.persistence
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import br.com.walter.walter.features.transactions.data.*
-import br.com.walter.walter.features.categories.data.CategoryDao
+import br.com.walter.walter.features.categories.data.CategoriesDao
 import br.com.walter.walter.features.categories.data.CategoryDto
 import br.com.walter.walter.features.transactiontypes.data.TransactionTypesDao
 import br.com.walter.walter.features.transactiontypes.data.TransactionTypeDto
@@ -27,7 +27,7 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun transactionTypeDao(): TransactionTypesDao
 
-    abstract fun categoryDao(): CategoryDao
+    abstract fun categoryDao(): CategoriesDao
 
     abstract fun transactionDao(): TransactionsDao
 

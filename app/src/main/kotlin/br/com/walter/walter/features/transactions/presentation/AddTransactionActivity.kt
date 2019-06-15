@@ -14,7 +14,7 @@ import br.com.walter.walter.core.persistence.AppDatabaseCallback
 import br.com.walter.walter.core.persistence.DATABASE_NAME
 import br.com.walter.walter.core.persistence.getDatabaseMigrations
 import br.com.walter.walter.features.categories.domain.Category
-import br.com.walter.walter.features.categories.data.CategoryDataSource
+import br.com.walter.walter.features.categories.data.CategoriesDataSource
 import br.com.walter.walter.features.categories.data.CategoryDtoMapper
 import br.com.walter.walter.features.categories.presentation.CategoryDialog
 import br.com.walter.walter.features.shared.presentation.DatePicker
@@ -43,11 +43,11 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         val categoryDtoMapper = CategoryDtoMapper()
 
         val categoryRepository =
-            CategoryDataSource(categoryDao, categoryDtoMapper)
+            CategoriesDataSource(categoryDao, categoryDtoMapper)
 
         presenter = AddTransactionPresenter(
             view = this,
-            categoryRepository = categoryRepository
+            categoriesRepository = categoryRepository
         )
         presenter.start()
 

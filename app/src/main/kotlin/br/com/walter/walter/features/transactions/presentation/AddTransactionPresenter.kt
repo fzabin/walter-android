@@ -5,7 +5,7 @@ import br.com.walter.walter.core.functional.onFailure
 import br.com.walter.walter.core.functional.onSuccess
 import br.com.walter.walter.core.util.DateFormatter
 import br.com.walter.walter.features.categories.domain.Category
-import br.com.walter.walter.features.categories.domain.CategoryRepository
+import br.com.walter.walter.features.categories.domain.CategoriesRepository
 import kotlinx.coroutines.launch
 
 const val EXPENSE_TYPE_ID = 1L
@@ -14,7 +14,7 @@ const val INVESTMENT_TYPE_ID = 3L
 
 class AddTransactionPresenter(
     private val view: AddTransactionContract.View,
-    private val categoryRepository: CategoryRepository
+    private val categoriesRepository: CategoriesRepository
 ) : AddTransactionContract.Presenter, CoroutinePresenter() {
 
     private var categories: List<Category>? = null
@@ -31,7 +31,7 @@ class AddTransactionPresenter(
 
     override fun getAllCategories() {
         launch {
-            categoryRepository.getAll()
+            categoriesRepository.getAll()
                 .onSuccess { allCategories ->
                     categories = allCategories.filter { it.transactionTypeId == EXPENSE_TYPE_ID }
                     expenseCategories = allCategories.filter { it.transactionTypeId == EXPENSE_TYPE_ID }
