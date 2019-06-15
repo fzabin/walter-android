@@ -3,8 +3,8 @@ package br.com.walter.walter.features.transactions.data
 import br.com.walter.walter.core.functional.Result
 import br.com.walter.walter.core.functional.mapCatching
 import br.com.walter.walter.core.functional.resultFrom
-import br.com.walter.walter.features.transactions.Transaction
-import br.com.walter.walter.features.transactions.TransactionRepository
+import br.com.walter.walter.features.transactions.domain.Transaction
+import br.com.walter.walter.features.transactions.domain.TransactionRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

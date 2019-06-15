@@ -1,4 +1,4 @@
-package br.com.walter.walter.features.transactions
+package br.com.walter.walter.features.transactions.domain
 
 import java.math.BigDecimal
 

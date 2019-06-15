@@ -2,7 +2,7 @@ package br.com.walter.walter.features.transactions.data
 
 import androidx.room.*
 import br.com.walter.walter.core.functional.TwoWayMapper
-import br.com.walter.walter.features.transactions.Transaction
+import br.com.walter.walter.features.transactions.domain.Transaction
 import br.com.walter.walter.features.categories.data.CATEGORY_ID_COLUMN_NAME
 import br.com.walter.walter.features.categories.data.CategoryDto
 import java.math.BigDecimal
