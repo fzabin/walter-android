@@ -22,6 +22,8 @@ interface AddTransactionContract {
 
         fun getAllCategories()
 
+        fun filterCategories(transactionTypeId: Long)
+
         fun onDateSelected(date: String)
 
         fun setDefaultDate()

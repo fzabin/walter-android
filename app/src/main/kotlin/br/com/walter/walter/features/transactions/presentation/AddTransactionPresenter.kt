@@ -45,6 +45,21 @@ class AddTransactionPresenter(
         }
     }
 
+    override fun filterCategories(transactionTypeId: Long) {
+        when (transactionTypeId) {
+            EXPENSE_TYPE_ID -> categories = expenseCategories
+            INCOME_TYPE_ID -> categories = incomeCategories
+            INVESTMENT_TYPE_ID -> categories = investmentCategories
+        }
+
+        resetCategoryField()
+    }
+
+    private fun resetCategoryField() {
+        view.setCategoryField("")
+        selectedCategory = Category(0L, "", 0L)
+    }
+
     override fun onDateSelected(date: String) {
         view.setDateField(date)
     }

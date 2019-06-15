@@ -67,6 +67,13 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
 
         addtransaction_date_field.setOnClickListener { datePicker.show() }
         addtransaction_category_field.setOnClickListener { presenter.showCategoryDialog() }
+        addtransaction_transaction_type_group.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.addtransaction_expense_option -> presenter.filterCategories(EXPENSE_TYPE_ID)
+                R.id.addtransaction_income_option -> presenter.filterCategories(INCOME_TYPE_ID)
+                R.id.addtransaction_investment_option -> presenter.filterCategories(INVESTMENT_TYPE_ID)
+            }
+        }
     }
 
     private fun setupActionBar() {
