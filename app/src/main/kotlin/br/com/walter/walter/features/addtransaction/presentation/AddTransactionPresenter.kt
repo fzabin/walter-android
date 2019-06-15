@@ -22,6 +22,8 @@ class AddTransactionPresenter(
     private var incomeCategories: List<Category>? = null
     private var investmentCategories: List<Category>? = null
 
+    private var selectedCategory = Category(0L, "", 0L)
+
     override fun start() {
         getAllCategories()
         setDefaultDate()
@@ -46,5 +48,14 @@ class AddTransactionPresenter(
 
     override fun setDefaultDate() {
         view.setDateField(DateFormatter().nowAsBrFormat())
+    }
+
+    override fun showCategoryDialog() {
+        view.showCategoryDialog(categories!!)
+    }
+
+    override fun onCategorySelected(category: Category) {
+        selectedCategory = category
+        view.setCategoryField(category.description)
     }
 }

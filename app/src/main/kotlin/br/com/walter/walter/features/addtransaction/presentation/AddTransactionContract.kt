@@ -2,6 +2,7 @@ package br.com.walter.walter.features.addtransaction.presentation
 
 import br.com.walter.walter.core.platform.base.BasePresenter
 import br.com.walter.walter.core.platform.base.BaseView
+import br.com.walter.walter.features.addtransaction.Category
 
 interface AddTransactionContract {
 
@@ -13,6 +14,8 @@ interface AddTransactionContract {
 
         fun setCategoryField(text: String)
 
+        fun showCategoryDialog(categories: List<Category>)
+
     }
 
     interface Presenter: BasePresenter {
@@ -22,6 +25,10 @@ interface AddTransactionContract {
         fun onDateSelected(date: String)
 
         fun setDefaultDate()
+
+        fun showCategoryDialog()
+
+        fun onCategorySelected(category: Category)
 
     }
 

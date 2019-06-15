@@ -3,6 +3,7 @@ package br.com.walter.walter.features.addtransaction.presentation
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -12,11 +13,11 @@ import br.com.walter.walter.core.persistence.AppDatabase
 import br.com.walter.walter.core.persistence.AppDatabaseCallback
 import br.com.walter.walter.core.persistence.DATABASE_NAME
 import br.com.walter.walter.core.persistence.getDatabaseMigrations
-import br.com.walter.walter.core.util.DateFormatter
+import br.com.walter.walter.features.addtransaction.Category
 import br.com.walter.walter.features.addtransaction.data.CategoryDataSource
 import br.com.walter.walter.features.addtransaction.data.CategoryDtoMapper
+import br.com.walter.walter.features.shared.presentation.CategoryDialog
 import br.com.walter.walter.features.shared.presentation.DatePicker
-import br.com.walter.walter.features.shared.presentation.datePicker
 import kotlinx.android.synthetic.main.addtransaction_activity.*
 
 const val WITHOUT_ELEVATION = 0F
@@ -64,6 +65,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         }
 
         addtransaction_date_field.setOnClickListener { datePicker.show() }
+        addtransaction_category_field.setOnClickListener { presenter.showCategoryDialog() }
     }
 
     private fun setupActionBar() {
@@ -107,5 +109,13 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
 
     override fun setCategoryField(text: String) {
         addtransaction_category_field.setText(text)
+    }
+
+    override fun showCategoryDialog(categories: List<Category>) {
+        CategoryDialog(window.decorView as ViewGroup, this)
+            .list(
+                categories = categories,
+                selected = { presenter.onCategorySelected(it) }
+            )
     }
 }
