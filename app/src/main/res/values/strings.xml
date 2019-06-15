@@ -25,7 +25,7 @@
     <string name="addtransaction_income_option">Income</string>
     <string name="addtransaction_expense_option">Expense</string>
     <string name="addtransaction_investment_option">Investment</string>
-    <string name="addtransaction_default_button">Add transaction</string>
+    <string name="addtransaction_default_button">Add expense</string>
     <string name="addtransaction_income_button">Add income</string>
     <string name="addtransaction_expense_button">Add expense</string>
     <string name="addtransaction_investment_button">Add investment</string>
