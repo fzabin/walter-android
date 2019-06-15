@@ -63,7 +63,7 @@
             android:id="@+id/addtransaction_value_field"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberPassword"
+            android:inputType="numberDecimal"
             android:lines="1"
             android:textColor="@android:color/white" />
 
