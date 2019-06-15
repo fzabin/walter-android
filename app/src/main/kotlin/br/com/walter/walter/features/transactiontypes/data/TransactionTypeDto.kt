@@ -1,16 +1,16 @@
-package br.com.walter.walter.features.addtransaction.data
+package br.com.walter.walter.features.transactiontypes.data
 
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import br.com.walter.walter.core.functional.TwoWayMapper
-import br.com.walter.walter.features.addtransaction.TransactionType
+import br.com.walter.walter.features.transactiontypes.domain.TransactionType
 
 const val TRANSACTION_TYPE_TABLE_NAME = "transaction_type"
 const val TRANSACTION_TYPE_ID_COLUMN_NAME = "id"
 const val TRANSACTION_TYPE_INITIAL_SETUP = "INSERT INTO `transaction_type` VALUES (1, 'Expense'), (2, 'Income'), (3, 'Investment')"
 
-@Entity(tableName = TRANSACTION_TYPE_TABLE_NAME )
+@Entity(tableName = TRANSACTION_TYPE_TABLE_NAME)
 data class TransactionTypeDto(
     @PrimaryKey
     val id: Long,
