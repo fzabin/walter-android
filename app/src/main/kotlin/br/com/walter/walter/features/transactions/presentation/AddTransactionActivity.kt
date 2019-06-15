@@ -1,4 +1,4 @@
-package br.com.walter.walter.features.addtransaction.presentation
+package br.com.walter.walter.features.transactions.presentation
 
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity

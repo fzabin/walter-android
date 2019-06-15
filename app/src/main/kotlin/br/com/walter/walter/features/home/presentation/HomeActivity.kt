@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
-import br.com.walter.walter.features.addtransaction.presentation.AddTransactionActivity
+import br.com.walter.walter.features.transactions.presentation.AddTransactionActivity
 import br.com.walter.walter.R
 import kotlinx.android.synthetic.main.home_activity.*
 

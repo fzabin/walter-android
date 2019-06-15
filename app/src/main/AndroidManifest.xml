@@ -9,7 +9,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".features.addtransaction.presentation.AddTransactionActivity">
+        <activity android:name=".features.transactions.presentation.AddTransactionActivity">
         </activity>
         <activity android:name=".features.home.presentation.HomeActivity">
             <intent-filter>

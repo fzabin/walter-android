@@ -1,4 +1,4 @@
-package br.com.walter.walter.features.addtransaction
+package br.com.walter.walter.features.transactions
 
 import java.math.BigDecimal
 

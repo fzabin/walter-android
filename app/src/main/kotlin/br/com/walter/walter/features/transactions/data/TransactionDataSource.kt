@@ -1,10 +1,10 @@
-package br.com.walter.walter.features.addtransaction.data
+package br.com.walter.walter.features.transactions.data
 
 import br.com.walter.walter.core.functional.Result
 import br.com.walter.walter.core.functional.mapCatching
 import br.com.walter.walter.core.functional.resultFrom
-import br.com.walter.walter.features.addtransaction.Transaction
-import br.com.walter.walter.features.addtransaction.TransactionRepository
+import br.com.walter.walter.features.transactions.Transaction
+import br.com.walter.walter.features.transactions.TransactionRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

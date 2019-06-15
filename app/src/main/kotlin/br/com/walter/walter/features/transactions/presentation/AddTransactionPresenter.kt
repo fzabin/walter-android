@@ -1,4 +1,4 @@
-package br.com.walter.walter.features.addtransaction.presentation
+package br.com.walter.walter.features.transactions.presentation
 
 import br.com.walter.walter.core.platform.CoroutinePresenter
 import br.com.walter.walter.core.functional.onFailure
