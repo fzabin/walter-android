@@ -1,10 +1,10 @@
-package br.com.walter.walter.features.addtransaction.data
+package br.com.walter.walter.features.categories.data
 
 import br.com.walter.walter.core.functional.Result
 import br.com.walter.walter.core.functional.mapCatching
 import br.com.walter.walter.core.functional.resultFrom
-import br.com.walter.walter.features.addtransaction.Category
-import br.com.walter.walter.features.addtransaction.CategoryRepository
+import br.com.walter.walter.features.categories.domain.Category
+import br.com.walter.walter.features.categories.domain.CategoryRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

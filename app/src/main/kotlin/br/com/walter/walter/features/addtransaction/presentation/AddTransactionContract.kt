@@ -2,7 +2,7 @@ package br.com.walter.walter.features.addtransaction.presentation
 
 import br.com.walter.walter.core.platform.base.BasePresenter
 import br.com.walter.walter.core.platform.base.BaseView
-import br.com.walter.walter.features.addtransaction.Category
+import br.com.walter.walter.features.categories.domain.Category
 
 interface AddTransactionContract {
 

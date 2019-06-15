@@ -3,6 +3,8 @@ package br.com.walter.walter.core.persistence
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import br.com.walter.walter.features.addtransaction.data.*
+import br.com.walter.walter.features.categories.data.CategoryDao
+import br.com.walter.walter.features.categories.data.CategoryDto
 
 const val DATABASE_NAME = "br.com.walter.walter.db"
 

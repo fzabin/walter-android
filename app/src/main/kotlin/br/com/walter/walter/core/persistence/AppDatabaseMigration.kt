@@ -3,7 +3,7 @@ package br.com.walter.walter.core.persistence
 import android.util.Log
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import br.com.walter.walter.features.addtransaction.data.CATEGORY_INITIAL_SETUP
+import br.com.walter.walter.features.categories.data.CATEGORY_INITIAL_SETUP
 
 fun getDatabaseMigrations(): Array<Migration> =
     arrayOf(

@@ -1,4 +1,4 @@
-package br.com.walter.walter.features.shared.presentation
+package br.com.walter.walter.features.categories.presentation
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.com.walter.walter.R
-import br.com.walter.walter.features.addtransaction.Category
+import br.com.walter.walter.features.categories.domain.Category
 import kotlinx.android.synthetic.main.addtransaction_category_dialog.view.*
 
 class CategoryDialog(

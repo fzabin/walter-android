@@ -13,10 +13,10 @@ import br.com.walter.walter.core.persistence.AppDatabase
 import br.com.walter.walter.core.persistence.AppDatabaseCallback
 import br.com.walter.walter.core.persistence.DATABASE_NAME
 import br.com.walter.walter.core.persistence.getDatabaseMigrations
-import br.com.walter.walter.features.addtransaction.Category
-import br.com.walter.walter.features.addtransaction.data.CategoryDataSource
-import br.com.walter.walter.features.addtransaction.data.CategoryDtoMapper
-import br.com.walter.walter.features.shared.presentation.CategoryDialog
+import br.com.walter.walter.features.categories.domain.Category
+import br.com.walter.walter.features.categories.data.CategoryDataSource
+import br.com.walter.walter.features.categories.data.CategoryDtoMapper
+import br.com.walter.walter.features.categories.presentation.CategoryDialog
 import br.com.walter.walter.features.shared.presentation.DatePicker
 import kotlinx.android.synthetic.main.addtransaction_activity.*
 
@@ -42,7 +42,8 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         val categoryDao = database.categoryDao()
         val categoryDtoMapper = CategoryDtoMapper()
 
-        val categoryRepository = CategoryDataSource(categoryDao, categoryDtoMapper)
+        val categoryRepository =
+            CategoryDataSource(categoryDao, categoryDtoMapper)
 
         presenter = AddTransactionPresenter(
             view = this,

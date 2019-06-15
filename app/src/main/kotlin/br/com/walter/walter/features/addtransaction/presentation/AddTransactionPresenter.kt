@@ -4,8 +4,8 @@ import br.com.walter.walter.core.platform.CoroutinePresenter
 import br.com.walter.walter.core.functional.onFailure
 import br.com.walter.walter.core.functional.onSuccess
 import br.com.walter.walter.core.util.DateFormatter
-import br.com.walter.walter.features.addtransaction.Category
-import br.com.walter.walter.features.addtransaction.CategoryRepository
+import br.com.walter.walter.features.categories.domain.Category
+import br.com.walter.walter.features.categories.domain.CategoryRepository
 import kotlinx.coroutines.launch
 
 const val EXPENSE_TYPE_ID = 1L

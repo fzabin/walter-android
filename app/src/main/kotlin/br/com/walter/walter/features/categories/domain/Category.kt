@@ -1,4 +1,4 @@
-package br.com.walter.walter.features.addtransaction
+package br.com.walter.walter.features.categories.domain
 
 data class Category (
     val id: Long,
