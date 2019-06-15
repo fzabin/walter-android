@@ -22,6 +22,9 @@ class AddTransactionPresenter(
     private var incomeCategories: List<Category>? = null
     private var investmentCategories: List<Category>? = null
 
+    private var date = ""
+    private var value = 0.0
+    private var description = ""
     private var selectedCategory = Category(0L, "", 0L)
 
     override fun start() {
@@ -58,4 +61,17 @@ class AddTransactionPresenter(
         selectedCategory = category
         view.setCategoryField(category.description)
     }
+
+    override fun updateDate(date: String) {
+        this.date = date
+    }
+
+    override fun updateValue(value: Double) {
+        this.value = value
+    }
+
+    override fun updateDescription(description: String) {
+        this.description = description
+    }
+
 }
