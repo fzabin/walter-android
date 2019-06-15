@@ -29,6 +29,6 @@ abstract class AppDatabase : RoomDatabase() {
 
     abstract fun categoryDao(): CategoryDao
 
-    abstract fun transactionDao(): TransactionDao
+    abstract fun transactionDao(): TransactionsDao
 
 }

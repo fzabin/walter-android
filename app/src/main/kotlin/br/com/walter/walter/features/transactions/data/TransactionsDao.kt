@@ -5,7 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 
 @Dao
-interface TransactionDao {
+interface TransactionsDao {
 
     @Insert(onConflict = REPLACE)
     fun save(TransactionDto: TransactionDto): Long
