@@ -40,8 +40,6 @@ interface AddTransactionContract {
 
         fun onCategorySelected(category: Category)
 
-        fun updateDate(date: String)
-
         fun updateValue(value: Double)
 
         fun updateDescription(description: String)

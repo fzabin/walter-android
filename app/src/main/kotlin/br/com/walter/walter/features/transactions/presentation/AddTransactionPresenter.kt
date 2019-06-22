@@ -64,7 +64,13 @@ class AddTransactionPresenter(
     }
 
     override fun onDateSelected(date: String) {
+        setDate(date)
+        validateDate()
         view.setDateField(date)
+    }
+
+    private fun setDate(date: String) {
+        this.date = date
     }
 
     override fun setDefaultDate() {
@@ -79,10 +85,6 @@ class AddTransactionPresenter(
         selectedCategory = category
         view.setCategoryField(category.description)
         validateCategory()
-    }
-
-    override fun updateDate(date: String) {
-        this.date = date
     }
 
     override fun updateValue(value: Double) {
@@ -117,6 +119,17 @@ class AddTransactionPresenter(
         when {
             selectedCategory.description.isEmpty() -> {
                 view.handleInvalidCategoryError(resourceProvider.getString(R.string.addtransaction_category_validation_error))
+            }
+            else -> {
+                view.handleInvalidCategoryError("")
+            }
+        }
+    }
+
+    private fun validateDate() {
+        when {
+            date.isEmpty() -> {
+                view.handleInvalidCategoryError(resourceProvider.getString(R.string.addtransaction_date_validation_error))
             }
             else -> {
                 view.handleInvalidCategoryError("")
