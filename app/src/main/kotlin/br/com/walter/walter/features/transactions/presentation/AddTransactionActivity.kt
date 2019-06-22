@@ -8,6 +8,7 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import br.com.walter.walter.R
+import br.com.walter.walter.core.extension.addTextChangedListener
 import br.com.walter.walter.core.extension.clearError
 import br.com.walter.walter.core.extension.showError
 import br.com.walter.walter.features.categories.domain.Category
@@ -56,6 +57,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
                 R.id.addtransaction_investment_option -> presenter.filterCategories(INVESTMENT_TYPE_ID)
             }
         }
+        addtransaction_value_field.addTextChangedListener(afterTextChanged = presenter::handleValueField)
     }
 
     private fun setupActionBar() {
