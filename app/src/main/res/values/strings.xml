@@ -36,5 +36,6 @@
     <string name="addtransaction_category_dialog_title">Categories</string>
     <string name="addtransaction_category_dialog_message">Error!</string>
     <string name="addtransaction_value_validation_error">Valor deve ser maior que 0</string>
+    <string name="addtransaction_category_validation_error">Selecione uma categoria</string>
     <!-- Add transaction screen -->
 </resources>
