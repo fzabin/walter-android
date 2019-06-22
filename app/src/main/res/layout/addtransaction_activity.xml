@@ -55,6 +55,7 @@
         android:layout_marginTop="16dp"
         android:hint="@string/addtransaction_value_field"
         android:theme="@style/TextInputLayoutAppearance"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintTop_toBottomOf="@id/addtransaction_transaction_type_group">
@@ -77,6 +78,7 @@
         android:layout_marginTop="20dp"
         android:hint="@string/addtransaction_category_field"
         android:theme="@style/TextInputLayoutAppearance"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintTop_toBottomOf="@id/addtransaction_value_layout">
@@ -103,6 +105,7 @@
         android:layout_marginTop="20dp"
         android:hint="@string/addtransaction_date_field"
         android:theme="@style/TextInputLayoutAppearance"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintTop_toBottomOf="@id/addtransaction_category_layout">
@@ -130,6 +133,7 @@
         android:layout_marginTop="20dp"
         android:hint="@string/addtransaction_description_field"
         android:theme="@style/TextInputLayoutAppearance"
+        app:errorEnabled="true"
         app:layout_constraintEnd_toEndOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintStart_toStartOf="@id/addtransaction_transaction_type_group"
         app:layout_constraintTop_toBottomOf="@id/addtransaction_date_layout">
