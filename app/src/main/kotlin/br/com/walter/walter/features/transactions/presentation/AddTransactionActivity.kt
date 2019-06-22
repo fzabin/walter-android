@@ -7,24 +7,19 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.room.Room
 import br.com.walter.walter.R
-import br.com.walter.walter.core.persistence.AppDatabase
-import br.com.walter.walter.core.persistence.AppDatabaseCallback
-import br.com.walter.walter.core.persistence.DATABASE_NAME
-import br.com.walter.walter.core.persistence.getDatabaseMigrations
 import br.com.walter.walter.features.categories.domain.Category
-import br.com.walter.walter.features.categories.data.CategoriesDataSource
-import br.com.walter.walter.features.categories.data.CategoryDtoMapper
 import br.com.walter.walter.features.categories.presentation.CategoryDialog
 import br.com.walter.walter.features.shared.presentation.DatePicker
 import kotlinx.android.synthetic.main.addtransaction_activity.*
+import org.koin.android.ext.android.inject
+import org.koin.core.parameter.parametersOf
 
 const val WITHOUT_ELEVATION = 0F
 
 class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View {
 
-    override lateinit var presenter: AddTransactionContract.Presenter
+    override val presenter: AddTransactionContract.Presenter by inject { parametersOf(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,21 +29,6 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         setupStatusBarColor()
         setupInitialButtonColor()
 
-        val database = Room.databaseBuilder(this, AppDatabase::class.java, DATABASE_NAME)
-            .addMigrations(*getDatabaseMigrations())
-            .addCallback(AppDatabaseCallback)
-            .build()
-
-        val categoryDao = database.categoryDao()
-        val categoryDtoMapper = CategoryDtoMapper()
-
-        val categoryRepository =
-            CategoriesDataSource(categoryDao, categoryDtoMapper)
-
-        presenter = AddTransactionPresenter(
-            view = this,
-            categoriesRepository = categoryRepository
-        )
         presenter.start()
 
         addtransaction_expense_option.setOnClickListener {
