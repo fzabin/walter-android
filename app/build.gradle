@@ -7,11 +7,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "br.com.walter.walter"
         minSdkVersion 23
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -39,7 +39,8 @@ android {
 }
 
 dependencies {
-    def room_version = "2.1.0-rc01"
+    def room_version = "2.1.0"
+    def koin_version = '2.0.1'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -60,11 +61,19 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
     // Material
-    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:design:29.0.0'
 
     // Third Party
     implementation 'joda-time:joda-time:2.10.1'
     implementation 'info.hoang8f:android-segmented:1.0.6'
+
+    // Koin AndroidX
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-ext:$koin_version"
+
+    // Koin Test
+    testImplementation "org.koin:koin-test:$koin_version"
 
     // Tests
     testImplementation 'junit:junit:4.12'
