@@ -16,6 +16,14 @@ interface AddTransactionContract {
 
         fun showCategoryDialog(categories: List<Category>)
 
+        fun handleInvalidValueError(message: String)
+
+        fun handleInvalidCategoryError(message: String)
+
+        fun handleInvalidDateError(message: String)
+
+        fun handleInvalidDescriptionError(message: String)
+
     }
 
     interface Presenter: BasePresenter {

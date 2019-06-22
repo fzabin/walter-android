@@ -8,6 +8,8 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import br.com.walter.walter.R
+import br.com.walter.walter.core.extension.clearError
+import br.com.walter.walter.core.extension.showError
 import br.com.walter.walter.features.categories.domain.Category
 import br.com.walter.walter.features.categories.presentation.CategoryDialog
 import br.com.walter.walter.features.shared.presentation.DatePicker
@@ -105,5 +107,37 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
                 categories = categories,
                 selected = { presenter.onCategorySelected(it) }
             )
+    }
+
+    override fun handleInvalidValueError(message: String) {
+        if (message.isNotEmpty()) {
+            addtransaction_value_layout.showError(message)
+        } else {
+            addtransaction_value_layout.clearError()
+        }
+    }
+
+    override fun handleInvalidCategoryError(message: String) {
+        if (message.isNotEmpty()) {
+            addtransaction_category_layout.showError(message)
+        } else {
+            addtransaction_category_layout.clearError()
+        }
+    }
+
+    override fun handleInvalidDateError(message: String) {
+        if (message.isNotEmpty()) {
+            addtransaction_date_layout.showError(message)
+        } else {
+            addtransaction_date_layout.clearError()
+        }
+    }
+
+    override fun handleInvalidDescriptionError(message: String) {
+        if (message.isNotEmpty()) {
+            addtransaction_description_layout.showError(message)
+        } else {
+            addtransaction_description_layout.clearError()
+        }
     }
 }
