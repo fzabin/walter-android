@@ -58,6 +58,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
             }
         }
         addtransaction_value_field.addTextChangedListener(afterTextChanged = presenter::handleValueField)
+        addtransaction_description_field.addTextChangedListener(afterTextChanged = presenter::handleDescriptionField)
     }
 
     private fun setupActionBar() {

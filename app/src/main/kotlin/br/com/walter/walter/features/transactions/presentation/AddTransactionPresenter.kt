@@ -136,4 +136,25 @@ class AddTransactionPresenter(
             }
         }
     }
+
+    override fun handleDescriptionField(newDescription: String) {
+        setDescription(newDescription)
+        validateDescription()
+    }
+
+    private fun setDescription(newDescription: String) {
+        description = if (newDescription.isEmpty()) "" else newDescription
+    }
+
+    private fun validateDescription() {
+        when {
+            description.isEmpty() -> {
+                view.handleInvalidDescriptionError(resourceProvider.getString(R.string.addtransaction_value_validation_error))
+            }
+            else -> {
+                view.handleInvalidDescriptionError("")
+            }
+        }
+    }
+
 }

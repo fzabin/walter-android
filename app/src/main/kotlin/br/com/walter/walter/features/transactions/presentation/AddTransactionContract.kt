@@ -46,6 +46,8 @@ interface AddTransactionContract {
 
         fun handleValueField(value: String)
 
+        fun handleDescriptionField(newDescription: String)
+
     }
 
 }
