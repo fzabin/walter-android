@@ -3,6 +3,7 @@ package br.com.walter.walter.features.transactions.presentation
 import br.com.walter.walter.core.platform.base.BasePresenter
 import br.com.walter.walter.core.platform.base.BaseView
 import br.com.walter.walter.features.categories.domain.Category
+import java.math.BigDecimal
 
 interface AddTransactionContract {
 
@@ -39,10 +40,6 @@ interface AddTransactionContract {
         fun showCategoryDialog()
 
         fun onCategorySelected(category: Category)
-
-        fun updateValue(value: Double)
-
-        fun updateDescription(description: String)
 
         fun handleValueField(value: String)
 

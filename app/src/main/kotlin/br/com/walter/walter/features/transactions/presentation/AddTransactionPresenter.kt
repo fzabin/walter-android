@@ -9,6 +9,7 @@ import br.com.walter.walter.core.util.DateFormatter
 import br.com.walter.walter.features.categories.domain.Category
 import br.com.walter.walter.features.categories.domain.CategoriesRepository
 import kotlinx.coroutines.launch
+import java.math.BigDecimal
 
 const val EXPENSE_TYPE_ID = 1L
 const val INCOME_TYPE_ID = 2L
@@ -25,10 +26,7 @@ class AddTransactionPresenter(
     private var incomeCategories: List<Category>? = null
     private var investmentCategories: List<Category>? = null
 
-    private var date = ""
-    private var value = 0.0
-    private var description = ""
-    private var selectedCategory = Category(0L, "", 0L)
+    private var transaction = TransactionModel.empty()
 
     override fun start() {
         getAllCategories()
@@ -60,7 +58,7 @@ class AddTransactionPresenter(
 
     private fun resetCategoryField() {
         view.setCategoryField("")
-        selectedCategory = Category(0L, "", 0L)
+        transaction = transaction.copy(categoryId = 0L)
     }
 
     override fun onDateSelected(date: String) {
@@ -70,7 +68,7 @@ class AddTransactionPresenter(
     }
 
     private fun setDate(date: String) {
-        this.date = date
+        transaction = transaction.copy(date = date)
     }
 
     override fun setDefaultDate() {
@@ -82,17 +80,9 @@ class AddTransactionPresenter(
     }
 
     override fun onCategorySelected(category: Category) {
-        selectedCategory = category
+        transaction = transaction.copy(categoryId = category.id)
         view.setCategoryField(category.description)
         validateCategory()
-    }
-
-    override fun updateValue(value: Double) {
-        this.value = value
-    }
-
-    override fun updateDescription(description: String) {
-        this.description = description
     }
 
     override fun handleValueField(value: String) {
@@ -101,12 +91,17 @@ class AddTransactionPresenter(
     }
 
     private fun setValue(newValue: String) {
-        value = if (newValue.isEmpty()) 0.0 else newValue.toDouble()
+        transaction =
+            if (newValue.isEmpty()) {
+                transaction.copy(value = BigDecimal.ZERO)
+            } else {
+                transaction.copy(value = newValue.toBigDecimal())
+            }
     }
 
     private fun validateValue() {
         when {
-            value <= 0.0 -> {
+            transaction.valueIsNotValid -> {
                 view.handleInvalidValueError(resourceProvider.getString(R.string.addtransaction_value_validation_error))
             }
             else -> {
@@ -117,7 +112,7 @@ class AddTransactionPresenter(
 
     private fun validateCategory() {
         when {
-            selectedCategory.description.isEmpty() -> {
+            transaction.categoryIsNotValid -> {
                 view.handleInvalidCategoryError(resourceProvider.getString(R.string.addtransaction_category_validation_error))
             }
             else -> {
@@ -128,7 +123,7 @@ class AddTransactionPresenter(
 
     private fun validateDate() {
         when {
-            date.isEmpty() -> {
+            transaction.date.isEmpty() -> {
                 view.handleInvalidCategoryError(resourceProvider.getString(R.string.addtransaction_date_validation_error))
             }
             else -> {
@@ -143,13 +138,18 @@ class AddTransactionPresenter(
     }
 
     private fun setDescription(newDescription: String) {
-        description = if (newDescription.isEmpty()) "" else newDescription
+        transaction =
+            if (newDescription.isEmpty()) {
+                transaction.copy(description = "")
+            } else {
+                transaction.copy(description = newDescription)
+            }
     }
 
     private fun validateDescription() {
         when {
-            description.isEmpty() -> {
-                view.handleInvalidDescriptionError(resourceProvider.getString(R.string.addtransaction_value_validation_error))
+            transaction.description.isEmpty() -> {
+                view.handleInvalidDescriptionError(resourceProvider.getString(R.string.addtransaction_description_validation_error))
             }
             else -> {
                 view.handleInvalidDescriptionError("")
