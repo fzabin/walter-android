@@ -1,5 +1,7 @@
 package br.com.walter.walter.features.transactions.presentation
 
+import br.com.walter.walter.core.functional.TwoWayMapper
+import br.com.walter.walter.features.transactions.domain.Transaction
 import java.math.BigDecimal
 
 data class TransactionModel(
@@ -24,10 +26,35 @@ data class TransactionModel(
     private val dateIsNotValid
         get() = date.length != 10
 
-    val valid
-        get() = !valueIsNotValid
-                && !dateIsNotValid
-                && description.isNotEmpty()
-                && !categoryIsNotValid
+    val isNotValid
+        get() = valueIsNotValid
+                && dateIsNotValid
+                && description.isEmpty()
+                && categoryIsNotValid
 
+}
+
+class TransactionModelMapper : TwoWayMapper<TransactionModel, Transaction> {
+
+    override fun map(param: TransactionModel): Transaction = with(param) {
+        Transaction(
+            id = id,
+            uuid = uuid,
+            value = value,
+            date = date,
+            description = description,
+            categoryId = categoryId
+        )
+    }
+
+    override fun mapReverse(param: Transaction): TransactionModel = with(param) {
+        TransactionModel(
+            id = id,
+            uuid = uuid,
+            value = value,
+            date = date,
+            description = description,
+            categoryId = categoryId
+        )
+    }
 }

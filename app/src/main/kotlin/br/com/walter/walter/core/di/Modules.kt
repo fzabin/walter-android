@@ -15,6 +15,7 @@ import br.com.walter.walter.features.transactions.data.TransactionsDataSource
 import br.com.walter.walter.features.transactions.domain.TransactionsRepository
 import br.com.walter.walter.features.transactions.presentation.AddTransactionContract
 import br.com.walter.walter.features.transactions.presentation.AddTransactionPresenter
+import br.com.walter.walter.features.transactions.presentation.TransactionModelMapper
 import br.com.walter.walter.features.transactiontypes.data.TransactionTypeDtoMapper
 import br.com.walter.walter.features.transactiontypes.data.TransactionTypesDataSource
 import br.com.walter.walter.features.transactiontypes.domain.TransactionTypesRepository
@@ -34,6 +35,7 @@ val mapperModule = module {
     factory { TransactionTypeDtoMapper() }
     factory { CategoryDtoMapper() }
     factory { TransactionDtoMapper() }
+    factory { TransactionModelMapper() }
 }
 
 val repositoryModule = module {
