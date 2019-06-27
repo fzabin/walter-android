@@ -23,5 +23,7 @@ class DateFormatter {
 
     fun nowAsTzFormat(): String = dtfTZ.print(DateTime())
 
+    fun nowAsDateFormat(): String = dtfDate.print(DateTime())
+
     fun nowAsBrFormat(): String = dtfDisplayBr.print(DateTime())
 }
