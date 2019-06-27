@@ -18,7 +18,7 @@ data class TransactionModel(
     }
 
     val valueIsNotValid
-        get() = value <= BigDecimal.ZERO
+        get() = value.compareTo(BigDecimal.ZERO) == 0
 
     val categoryIsNotValid
         get() = categoryId == 0L
@@ -28,9 +28,9 @@ data class TransactionModel(
 
     val isNotValid
         get() = valueIsNotValid
-                && dateIsNotValid
-                && description.isEmpty()
-                && categoryIsNotValid
+                || dateIsNotValid
+                || description.isEmpty()
+                || categoryIsNotValid
 
 }
 
