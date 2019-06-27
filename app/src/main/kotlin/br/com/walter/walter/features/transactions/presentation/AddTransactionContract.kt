@@ -25,6 +25,8 @@ interface AddTransactionContract {
 
         fun handleInvalidDescriptionError(message: String)
 
+        fun backToHome()
+
     }
 
     interface Presenter: BasePresenter {
@@ -44,6 +46,8 @@ interface AddTransactionContract {
         fun handleValueField(value: String)
 
         fun handleDescriptionField(newDescription: String)
+
+        fun saveTransaction()
 
     }
 

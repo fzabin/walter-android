@@ -8,6 +8,7 @@ import br.com.walter.walter.core.provider.ResourceProvider
 import br.com.walter.walter.core.util.DateFormatter
 import br.com.walter.walter.features.categories.domain.Category
 import br.com.walter.walter.features.categories.domain.CategoriesRepository
+import br.com.walter.walter.features.transactions.domain.TransactionsRepository
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
 
@@ -18,6 +19,9 @@ const val INVESTMENT_TYPE_ID = 3L
 class AddTransactionPresenter(
     private val view: AddTransactionContract.View,
     private val categoriesRepository: CategoriesRepository,
+    private val transactionsRepository: TransactionsRepository,
+    private val transactionModelMapper: TransactionModelMapper,
+    private val dateFormatter: DateFormatter,
     private val resourceProvider: ResourceProvider
 ) : AddTransactionContract.Presenter, CoroutinePresenter() {
 
@@ -64,7 +68,7 @@ class AddTransactionPresenter(
     override fun onDateSelected(date: String) {
         setDate(date)
         validateDate()
-        view.setDateField(date)
+        view.setDateField(dateFormatter.tzFormatToDisplayBrFormat(date))
     }
 
     private fun setDate(date: String) {
@@ -72,6 +76,7 @@ class AddTransactionPresenter(
     }
 
     override fun setDefaultDate() {
+        setDate(dateFormatter.nowAsDateFormat())
         view.setDateField(DateFormatter().nowAsBrFormat())
     }
 
@@ -124,10 +129,10 @@ class AddTransactionPresenter(
     private fun validateDate() {
         when {
             transaction.date.isEmpty() -> {
-                view.handleInvalidCategoryError(resourceProvider.getString(R.string.addtransaction_date_validation_error))
+                view.handleInvalidDateError(resourceProvider.getString(R.string.addtransaction_date_validation_error))
             }
             else -> {
-                view.handleInvalidCategoryError("")
+                view.handleInvalidDateError("")
             }
         }
     }
@@ -155,6 +160,29 @@ class AddTransactionPresenter(
                 view.handleInvalidDescriptionError("")
             }
         }
+    }
+
+    override fun saveTransaction() {
+        if (transaction.isNotValid) {
+            validateForm()
+            return
+        }
+
+        launch {
+            transactionsRepository.save(transactionModelMapper.map(transaction))
+                .onSuccess {
+                    view.showMessage(resourceProvider.getString(R.string.addtransaction_save_success))
+                    view.backToHome()
+                }
+                .onFailure { view.showMessage(resourceProvider.getString(R.string.addtransaction_save_failure)) }
+        }
+    }
+
+    private fun validateForm() {
+        validateValue()
+        validateCategory()
+        validateDate()
+        validateDescription()
     }
 
 }

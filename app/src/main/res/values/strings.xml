@@ -38,6 +38,8 @@
     <string name="addtransaction_value_validation_error">Valor deve ser maior que 0</string>
     <string name="addtransaction_category_validation_error">Selecione uma categoria</string>
     <string name="addtransaction_date_validation_error">Selecione uma data</string>
-    <string name="addtransaction_description_validation_error">Insira uma descriçao</string>
+    <string name="addtransaction_description_validation_error">Insira uma descrição</string>
+    <string name="addtransaction_save_success">Transaction saved successfully!</string>
+    <string name="addtransaction_save_failure">Failed to save transaction. Try again.</string>
     <!-- Add transaction screen -->
 </resources>

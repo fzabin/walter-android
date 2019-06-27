@@ -44,8 +44,8 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
             setupLayout(getString(R.string.addtransaction_investment_button), this.getColor(R.color.colorInvestment))
         }
 
-        val datePicker = DatePicker(this) { _, formattedDate ->
-            presenter.onDateSelected(formattedDate)
+        val datePicker = DatePicker(this) { date, _ ->
+            presenter.onDateSelected(date)
         }
 
         addtransaction_date_field.setOnClickListener { datePicker.show() }
@@ -59,6 +59,7 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         }
         addtransaction_value_field.addTextChangedListener(afterTextChanged = presenter::handleValueField)
         addtransaction_description_field.addTextChangedListener(afterTextChanged = presenter::handleDescriptionField)
+        addtransaction_add_button.setOnClickListener { presenter.saveTransaction() }
     }
 
     private fun setupActionBar() {
@@ -142,5 +143,9 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
         } else {
             addtransaction_description_layout.clearError()
         }
+    }
+
+    override fun backToHome() {
+        this.finish()
     }
 }

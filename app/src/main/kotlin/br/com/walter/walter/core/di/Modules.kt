@@ -46,7 +46,7 @@ val repositoryModule = module {
 }
 
 val presentationModule = module {
-    factory<AddTransactionContract.Presenter> { (view: AddTransactionContract.View) -> AddTransactionPresenter(view, get(), get()) }
+    factory<AddTransactionContract.Presenter> { (view: AddTransactionContract.View) -> AddTransactionPresenter(view, get(), get(), get(), get(), get()) }
 }
 
 val resourceModule = module {
