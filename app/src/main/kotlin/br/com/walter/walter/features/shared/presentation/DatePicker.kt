@@ -17,7 +17,7 @@ fun datePicker(
         DatePickerDialog(context, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             val month = if (monthOfYear + 1 < 10) "0${monthOfYear + 1}" else "${monthOfYear + 1}"
             val day = if (dayOfMonth < 10) "0$dayOfMonth" else "$dayOfMonth"
-            val date = "$year-$month-$dayOfMonth"
+            val date = "$year-$month-$day"
             val formattedDate = "$day/$month/$year"
 
             dateSelected(date, formattedDate)
@@ -40,7 +40,7 @@ class DatePicker(
         DatePickerDialog(context, DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             val month = if (monthOfYear + 1 < 10) "0${monthOfYear + 1}" else "${monthOfYear + 1}"
             val day = if (dayOfMonth < 10) "0$dayOfMonth" else "$dayOfMonth"
-            val date = "$year-$month-$dayOfMonth"
+            val date = "$year-$month-$day"
             val formattedDate = "$day/$month/$year"
 
             dateSelected(date, formattedDate)
