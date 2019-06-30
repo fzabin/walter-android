@@ -8,4 +8,6 @@ interface TransactionsRepository {
 
     suspend fun getMonthlyTransactions(startDate: String, endDate: String): Result<List<TransactionWithType>>
 
+    suspend fun getMonthlySummary(startDate: String, endDate: String): Result<Summary>
+
 }
