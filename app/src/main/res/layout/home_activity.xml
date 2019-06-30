@@ -211,7 +211,7 @@
         app:layout_constraintTop_toBottomOf="@id/home_expenses_section" />
 
     <TextView
-        android:id="@+id/home_investments_text"
+        android:id="@+id/home_investments_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -220,13 +220,13 @@
         android:textAllCaps="true"
         android:textColor="@color/colorSecondaryText"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@id/home_investments_description"
+        app:layout_constraintBottom_toTopOf="@id/home_investments_text"
         app:layout_constraintRight_toRightOf="@id/home_investments_section"
         app:layout_constraintTop_toTopOf="@id/home_investments_section"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/home_investments_description"
+        android:id="@+id/home_investments_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -238,7 +238,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@id/home_investments_section"
         app:layout_constraintRight_toRightOf="@id/home_investments_section"
-        app:layout_constraintTop_toBottomOf="@id/home_investments_text" />
+        app:layout_constraintTop_toBottomOf="@id/home_investments_description" />
     <!-- endregion -->
 
     <androidx.appcompat.widget.AppCompatImageButton
