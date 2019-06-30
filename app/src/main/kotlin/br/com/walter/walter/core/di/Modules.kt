@@ -12,6 +12,7 @@ import br.com.walter.walter.features.categories.data.CategoriesDataSource
 import br.com.walter.walter.features.categories.data.CategoryDtoMapper
 import br.com.walter.walter.features.categories.domain.CategoriesRepository
 import br.com.walter.walter.features.transactions.data.TransactionDtoMapper
+import br.com.walter.walter.features.transactions.data.TransactionWithTypeDtoMapper
 import br.com.walter.walter.features.transactions.data.TransactionsDataSource
 import br.com.walter.walter.features.transactions.domain.TransactionsRepository
 import br.com.walter.walter.features.transactions.presentation.AddTransactionContract
@@ -37,12 +38,13 @@ val mapperModule = module {
     factory { CategoryDtoMapper() }
     factory { TransactionDtoMapper() }
     factory { TransactionModelMapper() }
+    factory { TransactionWithTypeDtoMapper() }
 }
 
 val repositoryModule = module {
     single<TransactionTypesRepository> { TransactionTypesDataSource(get(), get()) }
     single<CategoriesRepository> { CategoriesDataSource(get(), get()) }
-    single<TransactionsRepository> { TransactionsDataSource(get(), get()) }
+    single<TransactionsRepository> { TransactionsDataSource(get(), get(), get()) }
 }
 
 val presentationModule = module {

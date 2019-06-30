@@ -6,6 +6,6 @@ interface TransactionsRepository {
 
     suspend fun save(transaction: Transaction): Result<Unit>
 
-    suspend fun getMontlyTransactions(startDate: String, endDate: String): Result<List<Transaction>>
+    suspend fun getMonthlyTransactions(startDate: String, endDate: String): Result<List<TransactionWithType>>
 
 }
