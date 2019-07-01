@@ -1,17 +1,26 @@
 package br.com.walter.walter.features.home.presentation
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import br.com.walter.walter.features.transactions.presentation.AddTransactionActivity
 import br.com.walter.walter.R
+import br.com.walter.walter.core.archcomponents.extension.observe
+import br.com.walter.walter.core.util.NumberFormatter
+import br.com.walter.walter.features.transactions.presentation.AddTransactionActivity
 import kotlinx.android.synthetic.main.home_activity.*
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.math.BigDecimal
 
 const val ADD_REQUEST = 1
 
 class HomeActivity : AppCompatActivity() {
+
+    private val homeViewModel: HomeViewModel by viewModel()
+    private val numberFormatter: NumberFormatter by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,10 +29,30 @@ class HomeActivity : AppCompatActivity() {
         setupActionBar()
         setupStatusBarColor()
 
+        homeViewModel.run {
+            observe(totalExpenses, ::setTotalExpenses)
+            observe(totalInvestments, ::setTotalInvestments)
+            observe(balance, ::setBalance)
+        }
+
+        homeViewModel.getMonthlySummary()
+
         home_balance_section.setOnClickListener { }
         home_expenses_section.setOnClickListener { }
         home_investments_section.setOnClickListener { }
         home_add_button.setOnClickListener { navigateToAddTransaction(ADD_REQUEST) }
+    }
+
+    private fun setBalance(balance: BigDecimal) {
+        home_balance_text.text = numberFormatter.getCurrencyFormat(balance)
+    }
+
+    private fun setTotalExpenses(totalExpenses: BigDecimal) {
+        home_expenses_text.text = numberFormatter.getCurrencyFormat(totalExpenses)
+    }
+
+    private fun setTotalInvestments(totalInvestments: BigDecimal) {
+        home_investments_text.text = numberFormatter.getCurrencyFormat(totalInvestments)
     }
 
     private fun setupActionBar() {
@@ -45,4 +74,7 @@ class HomeActivity : AppCompatActivity() {
         startActivityForResult(intent, request)
     }
 
+    private fun showMessage(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+    }
 }

@@ -12,6 +12,7 @@ import br.com.walter.walter.core.util.NumberFormatter
 import br.com.walter.walter.features.categories.data.CategoriesDataSource
 import br.com.walter.walter.features.categories.data.CategoryDtoMapper
 import br.com.walter.walter.features.categories.domain.CategoriesRepository
+import br.com.walter.walter.features.home.presentation.HomeViewModel
 import br.com.walter.walter.features.transactions.data.TransactionDtoMapper
 import br.com.walter.walter.features.transactions.data.TransactionWithTypeDtoMapper
 import br.com.walter.walter.features.transactions.data.TransactionsDataSource
@@ -22,6 +23,7 @@ import br.com.walter.walter.features.transactions.presentation.TransactionModelM
 import br.com.walter.walter.features.transactiontypes.data.TransactionTypeDtoMapper
 import br.com.walter.walter.features.transactiontypes.data.TransactionTypesDataSource
 import br.com.walter.walter.features.transactiontypes.domain.TransactionTypesRepository
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val persistenceModule = module {
@@ -50,6 +52,7 @@ val repositoryModule = module {
 
 val presentationModule = module {
     factory<AddTransactionContract.Presenter> { (view: AddTransactionContract.View) -> AddTransactionPresenter(view, get(), get(), get(), get(), get()) }
+    viewModel { HomeViewModel(get(), get()) }
 }
 
 val resourceModule = module {
