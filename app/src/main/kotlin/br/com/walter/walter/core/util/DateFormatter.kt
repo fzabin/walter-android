@@ -26,4 +26,9 @@ class DateFormatter {
     fun nowAsDateFormat(): String = dtfDate.print(DateTime())
 
     fun nowAsBrFormat(): String = dtfDisplayBr.print(DateTime())
+
+    fun firstDayOfMonthAsDateFormat(): String = dtfDate.print(DateTime().dayOfMonth().withMinimumValue())
+
+    fun lastDayOfMonthAsDateFormat(): String = dtfDate.print(DateTime().dayOfMonth().withMaximumValue())
+
 }
