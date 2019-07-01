@@ -1,4 +1,4 @@
-package br.com.walter.walter.features.transactiontypes.domain
+package br.com.walter.walter.features.categories.domain
 
 data class TransactionType(
     val id: Long,

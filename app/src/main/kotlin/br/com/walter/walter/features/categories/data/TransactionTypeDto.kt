@@ -1,10 +1,10 @@
-package br.com.walter.walter.features.transactiontypes.data
+package br.com.walter.walter.features.categories.data
 
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import br.com.walter.walter.core.functional.TwoWayMapper
-import br.com.walter.walter.features.transactiontypes.domain.TransactionType
+import br.com.walter.walter.features.categories.domain.TransactionType
 
 const val TRANSACTION_TYPE_TABLE_NAME = "transaction_type"
 const val TRANSACTION_TYPE_ID_COLUMN_NAME = "id"

@@ -3,8 +3,6 @@ package br.com.walter.walter.features.categories.data
 import androidx.room.*
 import androidx.room.ForeignKey.CASCADE
 import br.com.walter.walter.core.functional.TwoWayMapper
-import br.com.walter.walter.features.transactiontypes.data.TRANSACTION_TYPE_ID_COLUMN_NAME
-import br.com.walter.walter.features.transactiontypes.data.TransactionTypeDto
 import br.com.walter.walter.features.categories.domain.Category
 
 const val CATEGORY_TABLE_NAME = "category"

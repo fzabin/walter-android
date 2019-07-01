@@ -5,8 +5,8 @@ import androidx.room.RoomDatabase
 import br.com.walter.walter.features.transactions.data.*
 import br.com.walter.walter.features.categories.data.CategoriesDao
 import br.com.walter.walter.features.categories.data.CategoryDto
-import br.com.walter.walter.features.transactiontypes.data.TransactionTypesDao
-import br.com.walter.walter.features.transactiontypes.data.TransactionTypeDto
+import br.com.walter.walter.features.categories.data.TransactionTypesDao
+import br.com.walter.walter.features.categories.data.TransactionTypeDto
 
 const val DATABASE_NAME = "br.com.walter.walter.db"
 

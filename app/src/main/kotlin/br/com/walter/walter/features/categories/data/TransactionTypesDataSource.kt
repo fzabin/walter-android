@@ -1,8 +1,8 @@
-package br.com.walter.walter.features.transactiontypes.data
+package br.com.walter.walter.features.categories.data
 
 import br.com.walter.walter.core.functional.*
-import br.com.walter.walter.features.transactiontypes.domain.TransactionType
-import br.com.walter.walter.features.transactiontypes.domain.TransactionTypesRepository
+import br.com.walter.walter.features.categories.domain.TransactionType
+import br.com.walter.walter.features.categories.domain.TransactionTypesRepository
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 

@@ -20,9 +20,9 @@ import br.com.walter.walter.features.transactions.domain.TransactionsRepository
 import br.com.walter.walter.features.transactions.presentation.AddTransactionContract
 import br.com.walter.walter.features.transactions.presentation.AddTransactionPresenter
 import br.com.walter.walter.features.transactions.presentation.TransactionModelMapper
-import br.com.walter.walter.features.transactiontypes.data.TransactionTypeDtoMapper
-import br.com.walter.walter.features.transactiontypes.data.TransactionTypesDataSource
-import br.com.walter.walter.features.transactiontypes.domain.TransactionTypesRepository
+import br.com.walter.walter.features.categories.data.TransactionTypeDtoMapper
+import br.com.walter.walter.features.categories.data.TransactionTypesDataSource
+import br.com.walter.walter.features.categories.domain.TransactionTypesRepository
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -45,7 +45,12 @@ val mapperModule = module {
 }
 
 val repositoryModule = module {
-    single<TransactionTypesRepository> { TransactionTypesDataSource(get(), get()) }
+    single<TransactionTypesRepository> {
+        TransactionTypesDataSource(
+            get(),
+            get()
+        )
+    }
     single<CategoriesRepository> { CategoriesDataSource(get(), get()) }
     single<TransactionsRepository> { TransactionsDataSource(get(), get(), get()) }
 }

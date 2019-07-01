@@ -1,4 +1,4 @@
-package br.com.walter.walter.features.transactiontypes.data
+package br.com.walter.walter.features.categories.data
 
 import androidx.room.Dao
 import androidx.room.Query
