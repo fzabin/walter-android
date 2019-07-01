@@ -17,4 +17,12 @@
     </style>
     <!-- endregion -->
 
+    <!-- region Spash screen theme. -->
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#fafafa</item>
+        <item name="colorPrimaryDark">#fafafa</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!-- endregion -->
+
 </resources>
