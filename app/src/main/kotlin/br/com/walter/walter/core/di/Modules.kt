@@ -8,6 +8,7 @@ import br.com.walter.walter.core.persistence.getDatabaseMigrations
 import br.com.walter.walter.core.platform.base.AppResourceProvider
 import br.com.walter.walter.core.provider.ResourceProvider
 import br.com.walter.walter.core.util.DateFormatter
+import br.com.walter.walter.core.util.NumberFormatter
 import br.com.walter.walter.features.categories.data.CategoriesDataSource
 import br.com.walter.walter.features.categories.data.CategoryDtoMapper
 import br.com.walter.walter.features.categories.domain.CategoriesRepository
@@ -54,4 +55,5 @@ val presentationModule = module {
 val resourceModule = module {
     single<ResourceProvider> { AppResourceProvider(get()) }
     factory { DateFormatter() }
+    factory { NumberFormatter() }
 }
