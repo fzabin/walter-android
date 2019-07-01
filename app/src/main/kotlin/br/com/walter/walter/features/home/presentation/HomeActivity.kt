@@ -43,6 +43,14 @@ class HomeActivity : AppCompatActivity() {
         home_add_button.setOnClickListener { navigateToAddTransaction(ADD_REQUEST) }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == ADD_REQUEST && resultCode == RESULT_OK) {
+            homeViewModel.getMonthlySummary()
+        }
+    }
+
     private fun setBalance(balance: BigDecimal) {
         home_balance_text.text = numberFormatter.getCurrencyFormat(balance)
     }

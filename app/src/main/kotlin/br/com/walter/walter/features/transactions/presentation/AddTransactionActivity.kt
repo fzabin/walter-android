@@ -1,5 +1,6 @@
 package br.com.walter.walter.features.transactions.presentation
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -146,6 +147,9 @@ class AddTransactionActivity : AppCompatActivity(), AddTransactionContract.View 
     }
 
     override fun backToHome() {
+        val intent = Intent()
+        setResult(RESULT_OK, intent)
+
         this.finish()
     }
 }
