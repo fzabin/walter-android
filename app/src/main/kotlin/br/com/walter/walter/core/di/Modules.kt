@@ -23,6 +23,7 @@ import br.com.walter.walter.features.transactions.presentation.TransactionModelM
 import br.com.walter.walter.features.categories.data.TransactionTypeDtoMapper
 import br.com.walter.walter.features.categories.data.TransactionTypesDataSource
 import br.com.walter.walter.features.categories.domain.TransactionTypesRepository
+import br.com.walter.walter.features.categories.domain.usecase.GetCategories
 import br.com.walter.walter.features.transactions.domain.usecase.GetCurrentMonthSummary
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -52,6 +53,8 @@ val categoriesModule = module {
 
     single<TransactionTypesRepository> { TransactionTypesDataSource(get(), get()) }
     single<CategoriesRepository> { CategoriesDataSource(get(), get()) }
+
+    factory { GetCategories(get()) }
 }
 
 val transactionsModule = module {
