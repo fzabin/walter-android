@@ -15,7 +15,7 @@
         android:background="#474b4c"
         android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/home_balance_section"
+        app:layout_constraintRight_toLeftOf="@id/home_income_section"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -55,7 +55,7 @@
         android:background="#474b4c"
         android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/home_balance_section"
+        app:layout_constraintRight_toLeftOf="@id/home_income_section"
         app:layout_constraintTop_toBottomOf="@id/home_summary_option" />
 
     <ImageView
@@ -94,7 +94,7 @@
         android:background="#474b4c"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/home_balance_section"
+        app:layout_constraintRight_toLeftOf="@id/home_income_section"
         app:layout_constraintTop_toBottomOf="@id/home_settings_option" />
 
     <ImageView
@@ -108,14 +108,14 @@
         app:layout_constraintBottom_toBottomOf="@id/home_sidebar"
         app:layout_constraintLeft_toLeftOf="@id/home_sidebar"
         app:layout_constraintRight_toRightOf="@id/home_sidebar" />
-    <!-- -->
+    <!-- endregion -->
 
-    <!-- Balance region -->
+    <!-- Income region -->
     <View
-        android:id="@+id/home_balance_section"
+        android:id="@+id/home_income_section"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@drawable/bg_border_right_balance"
+        android:background="@drawable/bg_border_right_income"
         android:foreground="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toTopOf="@id/home_expenses_section"
         app:layout_constraintEnd_toEndOf="parent"
@@ -123,22 +123,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/home_balance_description"
+        android:id="@+id/home_income_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:gravity="bottom|end"
-        android:text="@string/home_balance_description"
+        android:text="@string/home_income_description"
         android:textAllCaps="true"
         android:textColor="@color/colorSecondaryText"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@id/home_balance_text"
-        app:layout_constraintRight_toRightOf="@id/home_balance_section"
-        app:layout_constraintTop_toTopOf="@id/home_balance_section"
+        app:layout_constraintBottom_toTopOf="@id/home_income_text"
+        app:layout_constraintRight_toRightOf="@id/home_income_section"
+        app:layout_constraintTop_toTopOf="@id/home_income_section"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/home_balance_text"
+        android:id="@+id/home_income_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -146,12 +146,12 @@
         android:text="@string/home_balance_text"
         android:textAlignment="textEnd"
         android:textAllCaps="true"
-        android:textColor="#72e635"
+        android:textColor="@color/colorIncome"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/home_balance_section"
-        app:layout_constraintRight_toRightOf="@id/home_balance_section"
-        app:layout_constraintTop_toBottomOf="@id/home_balance_description" />
+        app:layout_constraintBottom_toBottomOf="@id/home_income_section"
+        app:layout_constraintRight_toRightOf="@id/home_income_section"
+        app:layout_constraintTop_toBottomOf="@id/home_income_description" />
     <!-- endregion -->
 
     <!-- Expense region -->
@@ -164,7 +164,7 @@
         app:layout_constraintBottom_toTopOf="@id/home_investments_section"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/home_summary_option"
-        app:layout_constraintTop_toBottomOf="@id/home_balance_section" />
+        app:layout_constraintTop_toBottomOf="@id/home_income_section" />
 
     <TextView
         android:id="@+id/home_expenses_description"
@@ -205,7 +205,7 @@
         android:layout_height="0dp"
         android:background="@drawable/bg_border_right_investment"
         android:foreground="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toTopOf="@id/home_add_button"
+        app:layout_constraintBottom_toTopOf="@id/home_balance_section"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/home_summary_option"
         app:layout_constraintTop_toBottomOf="@id/home_expenses_section" />
@@ -241,6 +241,49 @@
         app:layout_constraintTop_toBottomOf="@id/home_investments_description" />
     <!-- endregion -->
 
+    <!-- Balance region -->
+    <View
+        android:id="@+id/home_balance_section"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_border_right_balance"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toTopOf="@id/home_add_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/home_summary_option"
+        app:layout_constraintTop_toBottomOf="@id/home_investments_section" />
+
+    <TextView
+        android:id="@+id/home_balance_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:gravity="bottom|end"
+        android:text="@string/home_balance_description"
+        android:textAllCaps="true"
+        android:textColor="@color/colorSecondaryText"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@id/home_balance_text"
+        app:layout_constraintRight_toRightOf="@id/home_balance_section"
+        app:layout_constraintTop_toTopOf="@id/home_balance_section"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/home_balance_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@string/home_investment_text"
+        android:textAlignment="textEnd"
+        android:textAllCaps="true"
+        android:textColor="@color/colorBalance"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/home_balance_section"
+        app:layout_constraintRight_toRightOf="@id/home_balance_section"
+        app:layout_constraintTop_toBottomOf="@id/home_balance_description" />
+    <!-- endregion -->
+
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/home_add_button"
         android:layout_width="64dp"
@@ -253,6 +296,17 @@
         android:src="@drawable/ic_add_white_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/home_investments_section" />
+        app:layout_constraintTop_toBottomOf="@id/home_balance_section" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/home_add_button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:src="@drawable/ic_add_white_24dp"
+        app:layout_constraintTop_toBottomOf="@id/home_balance_section"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

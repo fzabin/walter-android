@@ -36,9 +36,10 @@ class HomeActivity : AppCompatActivity() {
 
         homeViewModel.launchGetCurrentMonthSummary()
 
-        home_balance_section.setOnClickListener { }
+        home_income_section.setOnClickListener { }
         home_expenses_section.setOnClickListener { }
         home_investments_section.setOnClickListener { }
+        home_balance_section.setOnClickListener { }
         home_add_button.setOnClickListener { navigateToAddTransaction(ADD_REQUEST) }
     }
 
@@ -52,14 +53,15 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setSummary(summary: Summary) {
         summary.let {
-            setBalance(it.balance)
+            setTotalIncome(it.totalIncome)
             setTotalExpenses(it.totalExpenses)
             setTotalInvestments(it.totalInvestment)
+            setBalance(it.balance)
         }
     }
 
-    private fun setBalance(balance: BigDecimal) {
-        home_balance_text.text = numberFormatter.getCurrencyFormat(balance)
+    private fun setTotalIncome(balance: BigDecimal) {
+        home_income_text.text = numberFormatter.getCurrencyFormat(balance)
     }
 
     private fun setTotalExpenses(totalExpenses: BigDecimal) {
@@ -68,6 +70,10 @@ class HomeActivity : AppCompatActivity() {
 
     private fun setTotalInvestments(totalInvestments: BigDecimal) {
         home_investments_text.text = numberFormatter.getCurrencyFormat(totalInvestments)
+    }
+
+    private fun setBalance(balance: BigDecimal) {
+        home_balance_text.text = numberFormatter.getCurrencyFormat(balance)
     }
 
     private fun setupActionBar() {
