@@ -29,7 +29,7 @@ class GetCurrentMonthSummary(
             val totalIncome = income.fold(BigDecimal.ZERO) { acc, transaction -> acc + transaction.value }
             val totalInvestments = investments.fold(BigDecimal.ZERO) { acc, transaction -> acc + transaction.value }
 
-            val balance = totalIncome - totalExpenses + totalInvestments
+            val balance = totalIncome - (totalExpenses + totalInvestments)
 
             Summary(
                 totalExpenses = totalExpenses,
