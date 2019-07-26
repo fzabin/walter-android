@@ -1,14 +1,14 @@
 package br.com.walter.walter.features.transactions.presentation
 
 import br.com.walter.walter.R
-import br.com.walter.walter.core.platform.CoroutinePresenter
 import br.com.walter.walter.core.functional.onFailure
 import br.com.walter.walter.core.functional.onSuccess
+import br.com.walter.walter.core.platform.CoroutinePresenter
 import br.com.walter.walter.core.provider.ResourceProvider
 import br.com.walter.walter.core.util.DateFormatter
 import br.com.walter.walter.features.categories.domain.Category
-import br.com.walter.walter.features.categories.domain.CategoriesRepository
-import br.com.walter.walter.features.transactions.domain.TransactionsRepository
+import br.com.walter.walter.features.categories.domain.usecase.GetCategories
+import br.com.walter.walter.features.transactions.domain.usecase.AddTransaction
 import kotlinx.coroutines.launch
 import java.math.BigDecimal
 
@@ -18,8 +18,8 @@ const val INVESTMENT_TYPE_ID = 3L
 
 class AddTransactionPresenter(
     private val view: AddTransactionContract.View,
-    private val categoriesRepository: CategoriesRepository,
-    private val transactionsRepository: TransactionsRepository,
+    private val getCategories: GetCategories,
+    private val addTransaction: AddTransaction,
     private val transactionModelMapper: TransactionModelMapper,
     private val dateFormatter: DateFormatter,
     private val resourceProvider: ResourceProvider
@@ -39,7 +39,7 @@ class AddTransactionPresenter(
 
     override fun getAllCategories() {
         launch {
-            categoriesRepository.getAll()
+            getCategories()
                 .onSuccess { allCategories ->
                     categories = allCategories.filter { it.transactionTypeId == EXPENSE_TYPE_ID }
                     expenseCategories = allCategories.filter { it.transactionTypeId == EXPENSE_TYPE_ID }
@@ -169,7 +169,7 @@ class AddTransactionPresenter(
         }
 
         launch {
-            transactionsRepository.save(transactionModelMapper.map(transaction))
+            addTransaction(AddTransaction.Params(transactionModelMapper.map(transaction)))
                 .onSuccess {
                     view.showMessage(resourceProvider.getString(R.string.addtransaction_save_success))
                     view.backToHome()
