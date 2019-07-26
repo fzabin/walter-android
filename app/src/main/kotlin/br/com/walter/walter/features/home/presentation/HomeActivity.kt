@@ -9,6 +9,7 @@ import androidx.core.content.ContextCompat
 import br.com.walter.walter.R
 import br.com.walter.walter.core.archcomponents.extension.observe
 import br.com.walter.walter.core.util.NumberFormatter
+import br.com.walter.walter.features.transactions.domain.Summary
 import br.com.walter.walter.features.transactions.presentation.AddTransactionActivity
 import kotlinx.android.synthetic.main.home_activity.*
 import org.koin.android.ext.android.inject
@@ -30,12 +31,10 @@ class HomeActivity : AppCompatActivity() {
         setupStatusBarColor()
 
         homeViewModel.run {
-            observe(totalExpenses, ::setTotalExpenses)
-            observe(totalInvestments, ::setTotalInvestments)
-            observe(balance, ::setBalance)
+            observe(summary, ::setSummary)
         }
 
-        homeViewModel.getMonthlySummary()
+        homeViewModel.launchGetCurrentMonthSummary()
 
         home_balance_section.setOnClickListener { }
         home_expenses_section.setOnClickListener { }
@@ -47,7 +46,15 @@ class HomeActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if (requestCode == ADD_REQUEST && resultCode == RESULT_OK) {
-            homeViewModel.getMonthlySummary()
+            homeViewModel.launchGetCurrentMonthSummary()
+        }
+    }
+
+    private fun setSummary(summary: Summary) {
+        summary.let {
+            setBalance(it.balance)
+            setTotalExpenses(it.totalExpenses)
+            setTotalInvestments(it.totalInvestment)
         }
     }
 

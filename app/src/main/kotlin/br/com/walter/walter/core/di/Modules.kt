@@ -73,5 +73,5 @@ val transactionsModule = module {
             get()
         )
     }
-    viewModel { HomeViewModel(get(), get()) }
+    viewModel { HomeViewModel(get()) }
 }
