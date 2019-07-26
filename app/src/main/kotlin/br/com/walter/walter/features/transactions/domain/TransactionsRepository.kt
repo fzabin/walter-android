@@ -6,7 +6,7 @@ interface TransactionsRepository {
 
     suspend fun save(transaction: Transaction): Result<Unit>
 
-    suspend fun getMonthlyTransactions(startDate: String, endDate: String): Result<List<TransactionWithType>>
+    suspend fun getTransactionsBetweenDates(startDate: String, endDate: String): Result<List<TransactionWithType>>
 
     suspend fun getMonthlySummary(startDate: String, endDate: String): Result<Summary>
 

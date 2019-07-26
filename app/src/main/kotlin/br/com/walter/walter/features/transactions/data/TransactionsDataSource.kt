@@ -23,7 +23,7 @@ class TransactionsDataSource(
         }.mapCatching { }
     }
 
-    override suspend fun getMonthlyTransactions(
+    override suspend fun getTransactionsBetweenDates(
         startDate: String,
         endDate: String
     ): Result<List<TransactionWithType>> = withContext(IO) {
