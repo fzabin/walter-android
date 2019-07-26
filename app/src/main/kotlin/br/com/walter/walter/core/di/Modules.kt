@@ -26,42 +26,49 @@ import br.com.walter.walter.features.categories.domain.TransactionTypesRepositor
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
+val resourceModule = module {
+    single<ResourceProvider> { AppResourceProvider(get()) }
+    factory { DateFormatter() }
+    factory { NumberFormatter() }
+}
+
 val persistenceModule = module {
-    single { Room.databaseBuilder(get(), AppDatabase::class.java, DATABASE_NAME)
-        .addMigrations(*getDatabaseMigrations())
-        .addCallback(AppDatabaseCallback)
-        .build() }
+    single {
+        Room.databaseBuilder(get(), AppDatabase::class.java, DATABASE_NAME)
+            .addMigrations(*getDatabaseMigrations())
+            .addCallback(AppDatabaseCallback)
+            .build()
+    }
+
     single { get<AppDatabase>().transactionTypeDao() }
     single { get<AppDatabase>().categoryDao() }
     single { get<AppDatabase>().transactionDao() }
 }
 
-val mapperModule = module {
+val categoriesModule = module {
     factory { TransactionTypeDtoMapper() }
     factory { CategoryDtoMapper() }
+
+    single<TransactionTypesRepository> { TransactionTypesDataSource(get(), get()) }
+    single<CategoriesRepository> { CategoriesDataSource(get(), get()) }
+}
+
+val transactionsModule = module {
     factory { TransactionDtoMapper() }
     factory { TransactionModelMapper() }
     factory { TransactionWithTypeDtoMapper() }
-}
 
-val repositoryModule = module {
-    single<TransactionTypesRepository> {
-        TransactionTypesDataSource(
+    single<TransactionsRepository> { TransactionsDataSource(get(), get(), get()) }
+
+    factory<AddTransactionContract.Presenter> { (view: AddTransactionContract.View) ->
+        AddTransactionPresenter(
+            view,
+            get(),
+            get(),
+            get(),
             get(),
             get()
         )
     }
-    single<CategoriesRepository> { CategoriesDataSource(get(), get()) }
-    single<TransactionsRepository> { TransactionsDataSource(get(), get(), get()) }
-}
-
-val presentationModule = module {
-    factory<AddTransactionContract.Presenter> { (view: AddTransactionContract.View) -> AddTransactionPresenter(view, get(), get(), get(), get(), get()) }
     viewModel { HomeViewModel(get(), get()) }
-}
-
-val resourceModule = module {
-    single<ResourceProvider> { AppResourceProvider(get()) }
-    factory { DateFormatter() }
-    factory { NumberFormatter() }
 }
