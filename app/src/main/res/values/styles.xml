@@ -1,11 +1,28 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!-- InputTextLayout theme region -->
+    <style name="TextInputLayoutAppearance" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <!-- reference our hint & error styles -->
+        <item name="android:textColor">#999999</item>
+        <item name="android:textColorHint">#999999</item>
+        <item name="colorControlActivated">#ffffff</item>
+    </style>
+    <!-- endregion -->
+
+    <!-- region Spash screen theme. -->
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#fafafa</item>
+        <item name="colorPrimaryDark">#fafafa</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!-- endregion -->
 
 </resources>

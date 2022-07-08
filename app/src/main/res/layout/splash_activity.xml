@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    tools:context=".features.shared.presentation.SplashActivity">
+
+    <ImageView
+        android:id="@+id/splashText"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/img_app_logo"
+        app:layout_constraintBottom_toTopOf="@id/splashGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/splashGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.48" />
+
+    <ProgressBar
+        android:id="@+id/splashProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:indeterminateTint="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/splashGuideline" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
